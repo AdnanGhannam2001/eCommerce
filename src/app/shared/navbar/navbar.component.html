@@ -1,1 +1,18 @@
-<p>navbar works!</p>
+<div class="container">
+    <div class="navbar__view-categories">
+        <p-button #btn 
+            type="button" 
+            icon="pi pi-bars" 
+            label="Browse All Categories"
+            styleClass="p-button-text"
+            (click)="categoryMenu.toggle($event)">
+        </p-button>
+        <p-tieredMenu #categoryMenu [model]="categories" [popup]="true"></p-tieredMenu>
+    </div>
+    <div class="navbar__navigators">
+        <p-megaMenu [model]="navigators"></p-megaMenu>
+    </div>
+    <div class="navbar__sales">
+        <a class="ecommerce-link" routerLink="/">Sale $20 Off Your First Order.</a>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+@use "../../utilities/mixin.scss";
+
+:host {
+    display: block;
+    border-bottom: 1px solid var(--clr-border);
+
+    .container {
+        @include mixin.flex(space-between);
+        gap: 1em;
+    }
+}

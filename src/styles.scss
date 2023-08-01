@@ -10,6 +10,11 @@
     --black: #212529;
     --gray: #8d979e;
     --light-gray: #f1f5f6;
+
+    --clr-primary: var(--black);
+    --clr-border: var(--light-gray);
+
+    --clr-link: var(--blue);
 }
 
 *,
@@ -27,4 +32,37 @@ html {
 body {
     font-size: 16px;
     font-family: var(--ff-primary);
+    color: var(--clr-primary);
+}
+
+// Custom
+.container {
+    max-width: 1380px;
+    margin-inline: auto;
+    padding-inline: 1em;
+}
+
+.ecommerce-link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        color: var(--clr-link);
+        text-decoration: underline;
+    }
+}
+
+// PrimeNG
+.p-tieredmenu .p-menuitem-link .p-icon-wrapper {
+  margin-left:auto;
+}
+
+body .p-megamenu {
+    background: transparent;
+    border: 0px;
+}
+
+// Currently Not Working on Firefox
+.p-megamenu .p-megamenu-submenu-header:has(.ng-star-inserted:empty) {
+    padding: 0;
 }
