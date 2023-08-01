@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonModule } from "primeng/button";
 import { PagesModule } from './pages/pages.module';
+import { TemplatesModule } from './templates/templates.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PagesModule } from './pages/pages.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     ButtonModule,
-    PagesModule
+    PagesModule,
+    TemplatesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
