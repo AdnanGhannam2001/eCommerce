@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --ff-primary: 'Bai Jamjuree', sans-serif;
+    
+    --blue: #2b38d1;
+    --red: #dd3842;
+    --green: #008a00;
+    --yellow: #ffb800;
+    --black: #212529;
+    --gray: #8d979e;
+    --light-gray: #f1f5f6;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    font-size: 16px;
+    font-family: var(--ff-primary);
+}
