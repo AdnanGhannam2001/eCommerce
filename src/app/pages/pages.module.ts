@@ -11,22 +11,24 @@ import { FaqsComponent } from './faqs/faqs.component';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { ButtonModule } from 'primeng/button';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    CategoriesComponent,
-    ProductsComponent,
-    ProductComponent,
-    AboutUsComponent,
-    ContactUsComponent,
-    NotFoundComponent,
-    FaqsComponent
-  ],
-  imports: [
-    CommonModule,
-    AppRoutingModule,
-    ButtonModule
-  ]
+    declarations: [
+        HomeComponent,
+        CategoriesComponent,
+        ProductsComponent,
+        ProductComponent,
+        AboutUsComponent,
+        ContactUsComponent,
+        NotFoundComponent,
+        FaqsComponent
+    ],
+    imports: [
+        CommonModule,
+        AppRoutingModule,
+        ButtonModule,
+        SharedModule
+    ]
 })
 export class PagesModule { }

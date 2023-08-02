@@ -3,6 +3,7 @@
 :root {
     --ff-primary: 'Bai Jamjuree', sans-serif;
     
+    --white: #fff;
     --blue: #2b38d1;
     --red: #dd3842;
     --green: #008a00;
@@ -19,6 +20,9 @@
     --clr-footer-feature-item-desc: var(--gray);
 
     --clr-not-found-message: var(--gray);
+
+    --bg-breadcrumb: var(--blue);
+    --clr-breadcrumb: var(--white);
 }
 
 *,

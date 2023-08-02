@@ -1,0 +1,26 @@
+@use "../../utilities/mixin.scss";
+
+:host {
+    $padding: .5em;
+    display: block;
+    padding: 2em $padding;
+    background-color: var(--bg-breadcrumb);
+    color: var(--clr-breadcrumb);
+
+    .container {
+        @include mixin.flex(center, center, column);
+        gap: $padding;
+    }
+
+    ::ng-deep .breadcrumb {
+        .p-breadcrumb {
+            background-color: transparent !important;
+            border: none;
+            
+            .p-menuitem-text,
+            .p-breadcrumb-chevron {
+                color: inherit;
+            }
+        }
+    }
+}

@@ -17,6 +17,8 @@ import { BadgeModule } from "primeng/badge";
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { FeaturesItemComponent } from './main-footer/features-item/features-item.component'
 import { AccordionModule } from 'primeng/accordion';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 
 
@@ -26,7 +28,8 @@ import { AccordionModule } from 'primeng/accordion';
     LogoComponent,
     MainHeaderComponent,
     MainFooterComponent,
-    FeaturesItemComponent
+    FeaturesItemComponent,
+    BreadcrumbComponent
   ],
   imports: [
     CommonModule,
@@ -40,13 +43,15 @@ import { AccordionModule } from 'primeng/accordion';
     DialogModule,
     AvatarModule,
     BadgeModule,
-    AccordionModule
+    AccordionModule,
+    BreadcrumbModule
   ],
   exports: [
     NavbarComponent,
     LogoComponent,
     MainHeaderComponent,
-    MainFooterComponent
+    MainFooterComponent,
+    BreadcrumbComponent
   ]
 })
 export class SharedModule { }
