@@ -5,8 +5,9 @@
     border-top: 1px solid var(--clr-border);
 
     .main-footer {
+        $padding: 1.5em;
+
         &__top {
-            $padding: 1.5em;
             @include mixin.flex(space-around, center, row, wrap);
             gap: $padding;
             padding: $padding;
@@ -14,8 +15,9 @@
         }
 
         &__bottom {
-            @include mixin.grid(1fr, repeat(4, 1fr), 0, 1em);
+            @include mixin.grid(1fr, repeat(4, 1fr), 0, $padding);
             justify-content: center;
+            padding: $padding;
 
             ::ng-deep .p-accordion-tab {
                 .p-accordion-header-link {
