@@ -62,7 +62,41 @@ body .p-megamenu {
     border: 0px;
 }
 
+body .p-button.p-button-text:enabled {
+    &:active,
+    &:hover {
+        background-color: transparent;
+    }
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
 // Currently Not Working on Firefox
-.p-megamenu .p-megamenu-submenu-header:has(.ng-star-inserted:empty) {
+body .p-megamenu .p-megamenu-submenu-header:has(.ng-star-inserted:empty) {
     padding: 0;
+}
+
+body .p-inputgroup {
+    width: 600px;
+
+    >*:not(:first-child) {
+        border-left-color: transparent;
+    }
+
+    .p-inputgroup-addon {
+        flex: 2.5;
+        padding: 0;
+        border-width: 0;
+
+
+        .p-multiselect {
+            border-radius: inherit;
+        }
+    }
+
+    .p-inputtext {
+        flex: 4;
+    }
 }

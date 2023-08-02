@@ -1,0 +1,30 @@
+<div class="container">
+    <ecommerce-logo></ecommerce-logo>
+    <div class="p-inputgroup">
+        <p-multiSelect defaultLabel="Select a City"  class="p-inputgroup-addon" [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-multiSelect>
+        <input #searchInput type="text" name="search" pInputText placeholder="Search..." />
+        <button type="button" (click)="search(searchInput.value)" pButton label="Search" styleClass="p-button-warn"></button>
+    </div> 
+    <div class="main-header__toolbar">
+        <div>
+            <p-button styleClass="p-button-text" (click)="showDialog()" label="Login"></p-button>
+            <p-dialog header="Login" [modal]="true" [(visible)]="visible" [style]="{width: '50vw'}">
+                <!-- TODO Login form -->
+            </p-dialog>
+        </div>
+        <a routerLink="/cart" styleClass="p-button-text" class="main-header__toolbar__link">
+            <p-avatar pBadge 
+                label="U" 
+                value="4" 
+                severity="danger"
+                [style]="{ 'background-color': 'transparent' }"></p-avatar>
+        </a>
+        <a routerLink="/fav" styleClass="p-button-text" class="main-header__toolbar__link">
+            <p-avatar pBadge 
+                label="V" 
+                value="4" 
+                severity="danger"
+                [style]="{ 'background-color': 'transparent' }"></p-avatar>
+        </a>
+    </div>
+</div>

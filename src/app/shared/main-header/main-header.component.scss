@@ -1,0 +1,20 @@
+@use "../../utilities/mixin.scss";
+
+:host {
+    display: block;
+    border: 1px solid var(--clr-border);
+
+    .container {
+        @include mixin.flex(space-between);
+    }
+
+    .main-header {
+        &__toolbar {
+            @include mixin.flex();
+
+            &__link {
+                padding: 0 .75em;
+            }
+        }
+    }
+}
