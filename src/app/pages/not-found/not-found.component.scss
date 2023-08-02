@@ -1,0 +1,22 @@
+@use "../../utilities/mixin.scss";
+
+:host {
+    display: block;
+    padding: 2em;
+    
+    .container {
+        @include mixin.flex(center, center, column);
+        gap: 1.5em;
+    }
+    
+    .not-found {
+        &__message {
+            color: var(--clr-not-found-message);
+        }
+
+        &__link {
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+}

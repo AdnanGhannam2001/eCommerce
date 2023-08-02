@@ -10,6 +10,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { AppRoutingModule } from '../app-routing.module';
 
+import { ButtonModule } from 'primeng/button';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -23,7 +25,8 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ButtonModule
   ]
 })
 export class PagesModule { }
