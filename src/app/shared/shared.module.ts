@@ -13,7 +13,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DialogModule } from 'primeng/dialog';
 import { AvatarModule } from 'primeng/avatar';
-import { BadgeModule } from "primeng/badge"
+import { BadgeModule } from "primeng/badge";
+import { MainFooterComponent } from './main-footer/main-footer.component';
+import { FeaturesItemComponent } from './main-footer/features-item/features-item.component'
+import { AccordionModule } from 'primeng/accordion';
 
 
 
@@ -21,7 +24,9 @@ import { BadgeModule } from "primeng/badge"
   declarations: [
     NavbarComponent,
     LogoComponent,
-    MainHeaderComponent
+    MainHeaderComponent,
+    MainFooterComponent,
+    FeaturesItemComponent
   ],
   imports: [
     CommonModule,
@@ -34,12 +39,14 @@ import { BadgeModule } from "primeng/badge"
     MultiSelectModule,
     DialogModule,
     AvatarModule,
-    BadgeModule
+    BadgeModule,
+    AccordionModule
   ],
   exports: [
     NavbarComponent,
     LogoComponent,
-    MainHeaderComponent
+    MainHeaderComponent,
+    MainFooterComponent
   ]
 })
 export class SharedModule { }

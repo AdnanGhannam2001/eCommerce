@@ -1,0 +1,38 @@
+@use "../../utilities/mixin.scss";
+
+:host {
+    display: block;
+    border-top: 1px solid var(--clr-border);
+
+    .main-footer {
+        &__top {
+            $padding: 1.5em;
+            @include mixin.flex(space-around, center, row, wrap);
+            gap: $padding;
+            padding: $padding;
+            border-bottom: 1px solid var(--clr-border);
+        }
+
+        &__bottom {
+            @include mixin.grid(1fr, repeat(4, 1fr), 0, 1em);
+            justify-content: center;
+
+            ::ng-deep .p-accordion-tab {
+                .p-accordion-header-link {
+                    text-transform: uppercase;
+                    background-color: transparent !important;
+                    border: none;
+
+                    .p-icon-wrapper {
+                        display: none;
+                    }
+                }
+
+                .p-accordion-content {
+                    border: none;
+                    line-height: 2em;
+                }
+            }
+        }
+    }
+}

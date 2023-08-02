@@ -1,0 +1,18 @@
+@use "../../../utilities/mixin.scss";
+
+:host {
+    font-size: .75em;
+    @include mixin.flex(center, center, column);
+    gap: .25em;
+    text-align: center;
+
+    .feature-item {
+        &__title {
+            text-transform: uppercase;
+        }
+
+        &__desc {
+            color: var(--clr-footer-feature-item-desc);
+        }
+    }
+}
