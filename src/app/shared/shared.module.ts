@@ -19,6 +19,7 @@ import { FeaturesItemComponent } from './main-footer/features-item/features-item
 import { AccordionModule } from 'primeng/accordion';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { CategoryComponent } from './category/category.component';
 
 
 
@@ -29,7 +30,8 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
     MainHeaderComponent,
     MainFooterComponent,
     FeaturesItemComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
     LogoComponent,
     MainHeaderComponent,
     MainFooterComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    CategoryComponent
   ]
 })
 export class SharedModule { }

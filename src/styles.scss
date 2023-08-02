@@ -23,6 +23,13 @@
 
     --bg-breadcrumb: var(--blue);
     --clr-breadcrumb: var(--white);
+
+    --bg-categories: var(--light-gray);
+
+    --bg-category: var(--white);
+    --bg-category-overlay: var(--black);
+    --clr-category-overlay: var(--white);
+    --clr-category-count: var(--gray);
 }
 
 *,
@@ -59,7 +66,6 @@ ul {
 
     &:hover {
         color: var(--clr-link);
-        text-decoration: underline;
     }
 }
 

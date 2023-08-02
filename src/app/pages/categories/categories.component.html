@@ -1,1 +1,7 @@
-<p>categories works!</p>
+<div class="container">
+    <p-dataView #dv [value]="categories" [rows]="9" [paginator]="true">
+        <ng-template let-category pTemplate="listItem">
+            <ecommerce-category [category]="category"></ecommerce-category>
+        </ng-template>
+    </p-dataView>
+</div>

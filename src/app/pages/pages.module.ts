@@ -12,6 +12,8 @@ import { AppRoutingModule } from '../app-routing.module';
 
 import { ButtonModule } from 'primeng/button';
 import { SharedModule } from "../shared/shared.module";
+import { PaginatorModule } from 'primeng/paginator';
+import { DataViewModule } from 'primeng/dataview';
 
 @NgModule({
     declarations: [
@@ -28,7 +30,9 @@ import { SharedModule } from "../shared/shared.module";
         CommonModule,
         AppRoutingModule,
         ButtonModule,
-        SharedModule
+        SharedModule,
+        PaginatorModule,
+        DataViewModule
     ]
 })
 export class PagesModule { }

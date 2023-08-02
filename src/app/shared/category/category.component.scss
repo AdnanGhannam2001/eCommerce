@@ -1,0 +1,73 @@
+@use "../../utilities/mixin.scss";
+
+:host {
+    padding: 1.5em;
+    background-color: var(--bg-category);
+    border-radius: 5px;
+
+    .category {
+        &__header {
+            $transition: all .5s ease;
+            display: block;
+            position: relative;
+            padding-top: 100%;
+            overflow: hidden;
+
+            &::before {
+                content: '';
+                @include mixin.absolute(0, 0, 0, 0);
+                z-index: 10;
+                opacity: 0;
+                background-color: var(--bg-category-overlay);
+                transition: $transition;
+            }
+
+            &::after {
+                font-size: 3em;
+                font-weight: 200;
+                color: var(--clr-category-overlay);
+                content: '+';
+                @include mixin.absoluteCenter();
+                z-index: 10;
+                opacity: 0;
+                transition: $transition;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: .75;
+                }
+
+                &::after {
+                    opacity: 1;
+                }
+
+                img {
+                    transform: scale(1.15);
+                }
+            }
+
+            img {
+                width: 100%;
+                @include mixin.absolute(0, auto, auto, 0);
+                transition: $transition;
+            }
+        }
+
+        &__footer {
+            $padding: 1em;
+            @include mixin.flex(center, center, column);
+            gap: $padding;
+            padding: $padding;
+            font-size: .9em;
+        }
+
+        &__name {
+            text-transform: uppercase;
+        }
+
+        &__count {
+            color: var(--clr-category-count);
+        }
+    }
+}
