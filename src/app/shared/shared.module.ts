@@ -20,6 +20,9 @@ import { AccordionModule } from 'primeng/accordion';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CategoryComponent } from './category/category.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductGridComponent } from './product-grid/product-grid.component';
+import { RatingModule } from "primeng/rating"
 
 
 
@@ -31,7 +34,9 @@ import { CategoryComponent } from './category/category.component';
     MainFooterComponent,
     FeaturesItemComponent,
     BreadcrumbComponent,
-    CategoryComponent
+    CategoryComponent,
+    ProductListComponent,
+    ProductGridComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +51,8 @@ import { CategoryComponent } from './category/category.component';
     AvatarModule,
     BadgeModule,
     AccordionModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    RatingModule
   ],
   exports: [
     NavbarComponent,
@@ -54,7 +60,9 @@ import { CategoryComponent } from './category/category.component';
     MainHeaderComponent,
     MainFooterComponent,
     BreadcrumbComponent,
-    CategoryComponent
+    CategoryComponent,
+    ProductListComponent,
+    ProductGridComponent
   ]
 })
 export class SharedModule { }

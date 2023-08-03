@@ -1,0 +1,87 @@
+@use "../../utilities/mixin.scss";
+
+:host {
+    $padding: 2em;
+    display: block;
+    align-items: center;
+    padding: $padding;
+    margin-bottom: -1em;
+    font-family: var(--ff-primary);
+    overflow: hidden;
+    background-color: var(--bg-product);
+    border-radius: 3px;
+
+    &:hover {
+        .product-list {
+            &__bottom {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    .product-list {
+        &__top {
+            position: relative;
+            padding-top: 175px;
+            width: 175px;
+
+            img {
+                @include mixin.absolute(0, auto, auto, 0);
+                width: 100%;
+            }
+        }
+
+        &__flag {
+            display: inline-block;
+            @include mixin.absolute(0, auto, auto, 0);
+            z-index: 10;
+            padding: .25em .75em;
+            color: var(--clr-product-flag);
+            background-color: var(--bg-product-new-flag);
+            border-radius: 2px;
+        }
+
+        &__bottom {
+            $tr: 5em;
+            @include mixin.flex(flex-start, flex-start, column);
+            gap: .5em;
+            transform: translateY($tr);
+            margin-top: calc(-1 * $tr);
+            background-color: var(--bg-primary);
+            transition: all .5s ease;
+        }
+
+        &__name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &__rating {
+            @include mixin.flex(flex-start, flex-start);
+            gap: .5em;
+        }
+
+        &__spec {
+            list-style-type: disc;
+            margin: 1em;
+        }
+
+        &__right {
+            @include mixin.flex(flex-start, flex-start, column);
+            gap: .5em;
+        }
+
+        &__stock {
+            color: var(--clr-product-out-stock);
+
+            &.in {
+                color: var(--clr-product-in-stock);
+            }
+        }
+
+        &__cost {
+            font-weight: 600;
+        }
+    }
+}

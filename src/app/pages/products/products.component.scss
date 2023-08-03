@@ -1,0 +1,24 @@
+@use "../../utilities/mixin.scss";
+
+:host {
+    display: block;
+    background-color: var(--bg-products);
+
+    ::ng-deep {
+        .p-dataview-grid {
+            .p-grid {
+                background-color: var(--bg-products);
+                @include mixin.grid(auto, repeat(auto-fill, minmax(175px, 380px)), 2em, 1em);
+                justify-content: center;
+            }
+        }
+
+        .p-dataview-list {
+            .p-grid {
+                background-color: var(--bg-products);
+                @include mixin.flex(stretch, stretch, column);
+                gap: 1em;
+            }
+        }
+    }
+}

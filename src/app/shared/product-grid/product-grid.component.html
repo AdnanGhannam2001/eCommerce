@@ -1,0 +1,20 @@
+<div class="product-list__top">
+    <span class="product-list__flag">{{ product.flag }}</span>
+    <img [src]="product.img" />
+</div>
+
+<div class="product-list__bottom">
+    <h4 class="product-list__name">
+        <a [routerLink]="'/product/' + product.id" class="ecommerce-link">{{ product.name }}</a>
+    </h4>
+    <div class="product-list__rating">
+        <p-rating [(ngModel)]="product.rate" [readonly]="true" [cancel]="false"></p-rating>
+        <span>({{ product.reviews }} review)</span>
+    </div>
+    <h2 class="product-list__cost">${{ product.cost }}</h2>
+    <small class="product-list__stock"
+        [class.in]="product.count">
+        {{ product.count ? "In stock" : "out of stock" }}
+    </small>
+    <p-button label="Add To Cart"></p-button>
+</div>

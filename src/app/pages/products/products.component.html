@@ -1,1 +1,17 @@
-<p>products works!</p>
+<div class="container">
+    <p-dataView #dv [value]="products" [layout]="currentLayout" [rows]="5" [paginator]="true">
+        <ng-template pTemplate="header">
+            <div class="flex justify-content-end">
+                <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+            </div>
+        </ng-template>
+        <ng-template let-product pTemplate="listItem">
+            <ecommerce-product-list [product]="product">
+            </ecommerce-product-list>
+        </ng-template>
+        <ng-template let-product pTemplate="gridItem">
+            <ecommerce-product-grid [product]="product">
+            </ecommerce-product-grid>
+        </ng-template>
+    </p-dataView>
+</div>

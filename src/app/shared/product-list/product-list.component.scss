@@ -1,0 +1,72 @@
+@use "../../utilities/mixin.scss";
+
+:host {
+    $padding: 2em;
+    @include mixin.grid(1fr, repeat(4, 1fr), $padding, $padding);
+    align-items: center;
+    padding: $padding;
+    font-family: var(--ff-primary);
+    background-color: var(--bg-product);
+    border-radius: 3px;
+
+    .product-list {
+        &__left {
+            position: relative;
+            padding-top: 175px;
+            width: 175px;
+
+            img {
+                @include mixin.absolute(0, auto, auto, 0);
+                width: 100%;
+            }
+        }
+
+        &__flag {
+            display: inline-block;
+            @include mixin.absolute(0, auto, auto, 0, -50%);
+            z-index: 10;
+            padding: .25em .75em;
+            color: var(--clr-product-flag);
+            background-color: var(--bg-product-new-flag);
+            border-radius: 2px;
+        }
+
+        &__center {
+            grid-column: 2 / span 2;
+        }
+
+        &__name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &__rating {
+            @include mixin.flex(flex-start, flex-start);
+            gap: .5em;
+            margin: .5em 0;
+        }
+
+        &__spec {
+            list-style-type: disc;
+            margin: 1em;
+        }
+
+        &__right {
+            @include mixin.flex(flex-start, flex-start, column);
+            gap: .5em;
+        }
+
+        &__stock {
+            color: var(--clr-product-out-stock);
+            
+            &.in {
+                color: var(--clr-product-in-stock);
+            }
+        }
+
+        &__cost {
+            font-weight: 600;
+        }
+    }
+}
