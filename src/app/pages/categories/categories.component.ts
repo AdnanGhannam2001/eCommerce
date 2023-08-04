@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CategoriesGroupService } from 'src/app/services/categories-group.service';
 
 export type Category = {
   id: string;
@@ -19,7 +20,7 @@ export class CategoriesComponent {
   ];
   categories: Category[] = [];
 
-  constructor() {
+  constructor(private categoriesGroupService: CategoriesGroupService) {
     this.categories = [
       { id: "1", name: "Category 1", img: "/assets/category-placeholder.webp", count: 10 },
       { id: "2", name: "Category 2", img: "/assets/category-placeholder.webp", count: 12 },
