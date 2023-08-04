@@ -19,11 +19,19 @@
         }
     }
 
+    ::ng-deep {
+        .add-to-cart,
+        .add-to-cart .p-button {
+            width: 100%;
+        }
+    }
+
     .product-list {
         &__top {
             position: relative;
             padding-top: 175px;
             width: 175px;
+            margin-inline: auto;
 
             img {
                 @include mixin.absolute(0, auto, auto, 0);
@@ -33,7 +41,7 @@
 
         &__flag {
             display: inline-block;
-            @include mixin.absolute(0, auto, auto, 0);
+            @include mixin.absolute(0, auto, auto, 0, -30%, -50%);
             z-index: 10;
             padding: .25em .75em;
             color: var(--clr-product-flag);
@@ -55,6 +63,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            width: 100%;
         }
 
         &__rating {

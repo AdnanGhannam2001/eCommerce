@@ -10,7 +10,7 @@
     </h4>
     <div class="product-list__rating">
         <p-rating [(ngModel)]="product.rate" [readonly]="true" [cancel]="false"></p-rating>
-        <span>({{ product.reviews }} review)</span>
+        <span>({{ product.reviews?.length || 0 }} reviews)</span>
     </div>
     <ul class="product-list__spec">
         <li *ngFor="let spec of product.description">{{ spec }}</li>
@@ -25,6 +25,7 @@
     </small>
     <h2 class="product-list__cost">${{ product.price }}</h2>
     <p-button label="Add To Cart"
+        class="add-to-cart"
         [disabled]="!product.available"
     ></p-button>
     <a [routerLink]="'/product/' + product.id" class="ecommerce-link">View product</a>

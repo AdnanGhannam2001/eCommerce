@@ -44,12 +44,17 @@
             border-radius: 4px;
             border: none;
             margin-bottom: .5em;
+
+            .products__count {
+                color: var(--clr-products-count);
+                font-weight: 500;
+            }
         }
 
         .p-dataview-grid {
             .p-grid {
                 background-color: var(--bg-products);
-                @include mixin.grid(auto, repeat(auto-fill, minmax(175px, 380px)), 2em, 1em);
+                @include mixin.grid(auto, repeat(auto-fill, minmax(250px, 1fr)), 2em, 1em);
                 justify-content: center;
             }
         }

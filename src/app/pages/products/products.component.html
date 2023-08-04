@@ -37,7 +37,7 @@
     </div>
     <p-dataView #dv [value]="products || []" [layout]="currentLayout" [rows]="5" [paginator]="true">
         <ng-template pTemplate="header">
-            <span>{{ products?.length }} products</span>
+            <span class="products__count">{{ products?.length }} products</span>
             <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
             <p-dropdown [options]="['Sort by 1', 'Sort by 2']" placeholder="Sort By Price"></p-dropdown>
         </ng-template>

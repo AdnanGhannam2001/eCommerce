@@ -9,6 +9,13 @@
     background-color: var(--bg-product);
     border-radius: 3px;
 
+    ::ng-deep {
+        .add-to-cart,
+        .add-to-cart .p-button {
+            width: 100%;
+        }
+    }
+
     .product-list {
         &__left {
             position: relative;
@@ -23,7 +30,7 @@
 
         &__flag {
             display: inline-block;
-            @include mixin.absolute(0, auto, auto, 0, -50%);
+            @include mixin.absolute(0, auto, auto, 0, -30%, -50%);
             z-index: 10;
             padding: .25em .75em;
             color: var(--clr-product-flag);
@@ -69,4 +76,5 @@
             font-weight: 600;
         }
     }
+
 }
