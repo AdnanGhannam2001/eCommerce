@@ -16,5 +16,7 @@
         [class.in]="product.count">
         {{ product.count ? "In stock" : "out of stock" }}
     </small>
-    <p-button label="Add To Cart"></p-button>
+    <p-button label="Add To Cart"
+        [disabled]="!product.count"
+    ></p-button>
 </div>

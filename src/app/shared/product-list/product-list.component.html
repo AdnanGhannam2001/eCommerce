@@ -22,6 +22,8 @@
         {{ product.count ? "In stock" : "out of stock" }}
     </small>
     <h2 class="product-list__cost">${{ product.cost }}</h2>
-    <p-button label="Add To Cart"></p-button>
+    <p-button label="Add To Cart"
+        [disabled]="!product.count"
+    ></p-button>
     <a [routerLink]="'/product/' + product.id" class="ecommerce-link">View product</a>
 </div>

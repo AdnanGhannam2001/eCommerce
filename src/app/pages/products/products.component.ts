@@ -7,7 +7,7 @@ import { Product } from 'src/app/shared/product-list/product-list.component';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  currentLayout = "grid"
+  currentLayout = "list"
 
   products: Product[];
 
@@ -29,7 +29,7 @@ export class ProductsComponent {
         name: "Stainless Steel Case with Braided Solo Loop",
         specification: ["Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         cost: 800,
-        count: 2,
+        count: 0,
         flag: "New",
         img: "/assets/category-placeholder.webp",
         rate: 4.4,
