@@ -1,9 +1,44 @@
 <div class="container">
+    <div class="products__sidebar">
+        <p-panel header="Product Categories">
+            <div *ngFor="let category of categories" class="field-checkbox">
+                <p-checkbox name="group" [value]="category" [inputId]="category.id"></p-checkbox>
+                <label [for]="category.id">{{ category.name }}</label>
+            </div>
+        </p-panel>
+        <p-divider></p-divider>
+        <p-panel header="Price" [toggleable]="true">
+            <p-slider [(ngModel)]="priceRange" [range]="true"></p-slider>
+        </p-panel>
+        <p-divider></p-divider>
+        <p-panel header="Color" [toggleable]="true">
+            <div *ngFor="let category of categories" class="field-checkbox">
+                <p-checkbox name="group" [value]="category" [inputId]="category.id"></p-checkbox>
+                <label [for]="category.id">{{ category.name }}</label>
+                <span>c</span>
+            </div>
+        </p-panel>
+        <p-divider></p-divider>
+        <p-panel header="Size" [toggleable]="true">
+            <div *ngFor="let category of categories" class="field-checkbox">
+                <p-checkbox name="group" [value]="category" [inputId]="category.id"></p-checkbox>
+                <label [for]="category.id">{{ category.name }}</label>
+                <span>(10)</span>
+            </div>
+        </p-panel>
+        <p-panel header="Availability" [toggleable]="true">
+            <div *ngFor="let category of categories" class="field-checkbox">
+                <p-checkbox name="group" [value]="category" [inputId]="category.id"></p-checkbox>
+                <label [for]="category.id">{{ category.name }}</label>
+                <span>(10)</span>
+            </div>
+        </p-panel>
+    </div>
     <p-dataView #dv [value]="products" [layout]="currentLayout" [rows]="5" [paginator]="true">
         <ng-template pTemplate="header">
-            <div class="flex justify-content-end">
-                <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
-            </div>
+            <span>{{ products.length }} products</span>
+            <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+            <p-dropdown [options]="['Sort by 1', 'Sort by 2']" placeholder="Sort By Price"></p-dropdown>
         </ng-template>
         <ng-template let-product pTemplate="listItem">
             <ecommerce-product-list [product]="product">

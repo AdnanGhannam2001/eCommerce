@@ -3,8 +3,48 @@
 :host {
     display: block;
     background-color: var(--bg-products);
+    padding: 2em 0;
+
+    .container {
+        @include mixin.flex(stretch, flex-start);
+        gap: 2em;
+    }
+
+    .products {
+        &__sidebar {
+            background-color: var(--bg-products-sidebar);
+            width: 260px;
+            padding: 1em 0;
+            border-radius: 4px;
+        }
+    }
 
     ::ng-deep {
+        .p-panel {
+            .p-panel-header {
+                text-transform: uppercase;
+            }
+
+            .p-panel-header,
+            .p-panel-content {
+                background-color: transparent;
+                border: none;
+            }
+        }
+
+        // 
+        p-dataview {
+            flex: 1;
+        }
+
+        .p-dataview-header {
+            @include mixin.flex(space-between);
+            background-color: var(--bg-products-header);
+            border-radius: 4px;
+            border: none;
+            margin-bottom: .5em;
+        }
+
         .p-dataview-grid {
             .p-grid {
                 background-color: var(--bg-products);

@@ -14,6 +14,11 @@ import { ButtonModule } from 'primeng/button';
 import { SharedModule } from "../shared/shared.module";
 import { PaginatorModule } from 'primeng/paginator';
 import { DataViewModule } from 'primeng/dataview';
+import { DividerModule } from 'primeng/divider';
+import { CheckboxModule } from 'primeng/checkbox';
+import { AccordionModule } from 'primeng/accordion';
+import { PanelModule } from "primeng/panel";
+import { SliderModule } from "primeng/slider";
 
 @NgModule({
     declarations: [
@@ -32,7 +37,11 @@ import { DataViewModule } from 'primeng/dataview';
         ButtonModule,
         SharedModule,
         PaginatorModule,
-        DataViewModule
+        DataViewModule,
+        DividerModule,
+        CheckboxModule,
+        PanelModule,
+        SliderModule
     ]
 })
 export class PagesModule { }

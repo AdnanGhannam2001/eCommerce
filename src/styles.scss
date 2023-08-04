@@ -1,3 +1,4 @@
+@use "./app/utilities/mixin.scss";
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
@@ -33,6 +34,8 @@
     --clr-category-count: var(--gray);
 
     --bg-products: var(--light-gray);
+    --bg-products-sidebar: var(--white);
+    --bg-products-header: var(--white);
     --bg-product: var(--white);
     --clr-product-in-stock: var(--green);
     --clr-product-out-stock: var(--red);
@@ -85,6 +88,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // PrimeNG
+body .p-component {
+    font-family: var(--ff-primary);
+}
+
 .p-tieredmenu .p-menuitem-link .p-icon-wrapper {
   margin-left:auto;
 }
@@ -138,10 +145,18 @@ body .p-dataview {
         background-color: transparent;
         padding: 1.5em;
     }
+}
 
-    .p-dataview-header {
-        background-color: transparent;
-        text-align: center;
-        border: none;
+body .p-component .field-checkbox {
+    @include mixin.flex;
+    gap: .5em;
+    user-select: none;
+    
+    &:not(:last-child) {
+        margin-bottom: .5em;
+    }
+
+    label {
+        flex: 1;
     }
 }
