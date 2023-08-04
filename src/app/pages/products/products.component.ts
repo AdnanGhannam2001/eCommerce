@@ -8,12 +8,15 @@ import { Category } from '../categories/categories.component';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  currentLayout = "list"
-
+  breadcrumbItems = [
+    { label: "Home" },
+    { label: "Products" },
+  ];
+  currentLayout = "list";
   products: Product[];
   categories: Category[] = [];
 
-  priceRange = [0, 1000]
+  priceRange = [0, 1000];
 
   constructor() {
     this.categories = [

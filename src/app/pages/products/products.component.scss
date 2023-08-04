@@ -3,11 +3,12 @@
 :host {
     display: block;
     background-color: var(--bg-products);
-    padding: 2em 0;
 
     .container {
         @include mixin.flex(stretch, flex-start);
         gap: 2em;
+        padding-top: 2em;
+        padding-bottom: 2em;
     }
 
     .products {

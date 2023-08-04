@@ -13,6 +13,10 @@ export type Category = {
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent {
+  breadcrumbItems = [
+    { label: "Home" },
+    { label: "Categories" },
+  ];
   categories: Category[] = [];
 
   constructor() {
