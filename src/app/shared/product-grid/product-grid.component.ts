@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../product-list/product-list.component';
+import { Product } from 'src/app/services/product.service';
 
 @Component({
   selector: 'ecommerce-product-grid[product]',

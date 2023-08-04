@@ -48,6 +48,8 @@
     - Tag[]?
     - CreatedAt
     - Sale
+    - (only-response) rate
+    - (only-response) flag
 - User:
     - ...
 - Review:

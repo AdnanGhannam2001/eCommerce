@@ -1,6 +1,7 @@
 <div class="product-list__left">
-    <span class="product-list__flag">{{ product.flag }}</span>
-    <img [src]="product.img" />
+    <!-- TODO add if -->
+    <span class="product-list__flag">New</span>
+    <img [src]="product.mainImage" />
 </div>
 
 <div class="product-list__center">
@@ -12,18 +13,19 @@
         <span>({{ product.reviews }} review)</span>
     </div>
     <ul class="product-list__spec">
-        <li *ngFor="let spec of product.specification">{{ spec }}</li>
+        <li *ngFor="let spec of product.description">{{ spec }}</li>
     </ul>
 </div>
 
 <div class="product-list__right">
     <small class="product-list__stock"
-        [class.in]="product.count">
-        {{ product.count ? "In stock" : "out of stock" }}
+        [class.in]="product.available">
+        {{ product.available ? "In stock" : "out of stock" }}
+        ({{ product.available }})
     </small>
-    <h2 class="product-list__cost">${{ product.cost }}</h2>
+    <h2 class="product-list__cost">${{ product.price }}</h2>
     <p-button label="Add To Cart"
-        [disabled]="!product.count"
+        [disabled]="!product.available"
     ></p-button>
     <a [routerLink]="'/product/' + product.id" class="ecommerce-link">View product</a>
 </div>

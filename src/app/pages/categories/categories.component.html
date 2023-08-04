@@ -1,6 +1,11 @@
 <ecommerce-breadcrumb [items]="breadcrumbItems"></ecommerce-breadcrumb>
 <div class="container">
-    <p-dataView #dv [value]="categories" [rows]="9" [paginator]="true">
+    <p-dataView #dv 
+        [value]="categories" 
+        [rows]="9" 
+        [paginator]="true" 
+        [loading]="loading" 
+        [alwaysShowPaginator]="false">
         <ng-template let-category pTemplate="listItem">
             <ecommerce-category [category]="category"></ecommerce-category>
         </ng-template>

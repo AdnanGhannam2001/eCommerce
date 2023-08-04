@@ -1,16 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-export type Product = {
-  id: string;
-  name: string;
-  img: string;
-  rate: number;
-  reviews: number;
-  specification: string[];
-  count: number;
-  cost: number;
-  flag: string;
-}
+import { Product } from 'src/app/services/product.service';
 
 @Component({
   selector: 'ecommerce-product-list[product]',

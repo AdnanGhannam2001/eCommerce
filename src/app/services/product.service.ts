@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, concatAll, filter, first, of } from 'rxjs';
 
+export interface Review {
+  by: any;
+  at: number;
+  content: string;
+  rate: number;
+};
+
 export interface Product {
   id: string;
   name: string
@@ -10,7 +17,7 @@ export interface Product {
   // description: 
   mainImage: string;
   images?: string[];
-  review?: string[];
+  reviews?: Review[];
   description: string[];
   shippingInfo: string;
   returnInformation: string;
@@ -20,6 +27,7 @@ export interface Product {
   // tag[]?
   createdAt: number;
   sale?: number;
+  rate: number;
 };
 
 @Injectable({
@@ -41,6 +49,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "2",
@@ -52,6 +61,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "3",
@@ -63,6 +73,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "4",
@@ -74,6 +85,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "5",
@@ -85,6 +97,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "6",
@@ -96,6 +109,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "7",
@@ -107,6 +121,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "8",
@@ -118,6 +133,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "9",
@@ -129,6 +145,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "10",
@@ -140,6 +157,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "11",
@@ -151,6 +169,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
       {
         id: "12",
@@ -162,6 +181,7 @@ export class ProductService {
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
         createdAt: Date.now(),
+        rate: 0
       },
     ];
     this.products$ = of(this.products);

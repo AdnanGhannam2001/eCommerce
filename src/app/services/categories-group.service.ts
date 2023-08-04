@@ -13,8 +13,8 @@ export interface CategoriesGroup {
   providedIn: 'root'
 })
 export class CategoriesGroupService {
-  categoriesGroups: CategoriesGroup[];
-  categoriesGroups$: Observable<CategoriesGroup[]>;
+  private categoriesGroups: CategoriesGroup[];
+  private categoriesGroups$: Observable<CategoriesGroup[]>;
 
   constructor() {
     this.categoriesGroups = [
@@ -24,15 +24,15 @@ export class CategoriesGroupService {
         img: "/assets/category.webp",
         categories: [
           { id: "1", name: "Computers" },
-          { id: "2", name: "Desktops & Monitors" },
-          { id: "3", name: "Hard Drives & Memory" },
-          { id: "4", name: "Networking & Internet" },
-          { id: "5", name: "Computer Accessories" }
+          { id: "2", name: "Hard Drives & Memory" },
+          { id: "3", name: "Desktops & Monitors" },
+          { id: "4", name: "Computer Accessories" },
+          { id: "5", name: "Networking & Internet" }
         ]
       },
       { 
         id: "2", 
-        name: "Computer & Desktop", 
+        name: "Laptop & Ipad", 
         img: "/assets/category.webp",
         categories: [
           { id: "1", name: "Computers" },
@@ -44,7 +44,7 @@ export class CategoriesGroupService {
       },
       { 
         id: "3", 
-        name: "Computer & Desktop", 
+        name: "Cameras & Photos", 
         img: "/assets/category.webp",
         categories: [
           { id: "1", name: "Computers" },
@@ -56,7 +56,7 @@ export class CategoriesGroupService {
       },
       { 
         id: "4", 
-        name: "Computer & Desktop", 
+        name: "Smart Phones & Tablets", 
         img: "/assets/category.webp",
         categories: [
           { id: "1", name: "Computers" },
@@ -68,7 +68,7 @@ export class CategoriesGroupService {
       },
       { 
         id: "5", 
-        name: "Computer & Desktop", 
+        name: "TV & Audios", 
         img: "/assets/category.webp",
         categories: [
           { id: "1", name: "Computers" },
@@ -86,9 +86,9 @@ export class CategoriesGroupService {
     return this.categoriesGroups$;
   }
 
-  getById(id: string) {
+  getByName(name: string) {
     return this.categoriesGroups$.pipe(
       concatAll(),
-      first((categoriesGroup: CategoriesGroup) => categoriesGroup.id == id));
+      first((categoriesGroup: CategoriesGroup) => categoriesGroup.name == name));
   }
 }
