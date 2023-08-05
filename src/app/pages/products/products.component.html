@@ -13,10 +13,14 @@
         </p-panel>
         <p-divider></p-divider>
         <p-panel header="Color" [toggleable]="true">
-            <div *ngFor="let category of categories" class="field-checkbox">
-                <p-checkbox name="group" [value]="category" [inputId]="category.id"></p-checkbox>
-                <label [for]="category.id">{{ category.name }} (1)</label>
-                <span>c</span>
+            <div *ngFor="let color of colors" class="field-checkbox">
+                <p-checkbox name="group" [value]="color" [inputId]="color.id"></p-checkbox>
+                <label [for]="color.id">{{ color.name }} (1)</label>
+                <p-avatar 
+                    [title]="color.value" 
+                    [style]="{ 'background-color': color.value }" 
+                    shape="circle"
+                ></p-avatar>
             </div>
         </p-panel>
         <p-divider></p-divider>

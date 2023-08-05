@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable, concatAll, filter, first, of } from 'rxjs';
 
+export interface Color {
+  id: string;
+  name: string;
+  value: string;
+};
+
 export interface Review {
   by: any;
   at: number;
@@ -21,7 +27,7 @@ export interface Product {
   description: string[];
   shippingInfo: string;
   returnInformation: string;
-  availableColors?: string[][];
+  availableColors?: Color[];
   available: number;
   // vendor
   // tag[]?
@@ -34,10 +40,27 @@ export interface Product {
   providedIn: 'root'
 })
 export class ProductService {
-  products: Product[];
-  products$: Observable<Product[]>;
+  private colors: Color[];
+  private colors$: Observable<Color[]>;
+
+  private products: Product[];
+  private products$: Observable<Product[]>;
 
   constructor() {
+    this.colors = [
+      { id: "1", name: "Black", value: "#000000" },
+      { id: "2", name: "Blue", value: "#0000ff" },
+      { id: "3", name: "Dark grayish orange", value: "#ffffff" },
+      { id: "4", name: "DarkSeaGreen", value: "#8fbc8f" },
+      { id: "5", name: "DeepSkyBlue", value: "#00bfff" },
+      { id: "6", name: "GhostWhite", value: "#f8f8ff" },
+      { id: "7", name: "Lavender", value: "#e6e6fa" },
+      { id: "8", name: "LightBlue", value: "#add8e6" },
+      { id: "9", name: "MidnightBlue", value: "#191970" },
+      { id: "10", name: "Purple", value: "#800080" }
+    ];
+    this.colors$ = of(this.colors);
+
     this.products = [
       {
         id: "1",
@@ -201,5 +224,9 @@ export class ProductService {
     return this.products$.pipe(
       concatAll(),
       filter(product => product.category == category));
+  }
+
+  getColors() {
+    return this.colors$;
   }
 }

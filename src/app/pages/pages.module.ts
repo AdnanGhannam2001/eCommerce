@@ -16,9 +16,9 @@ import { PaginatorModule } from 'primeng/paginator';
 import { DataViewModule } from 'primeng/dataview';
 import { DividerModule } from 'primeng/divider';
 import { CheckboxModule } from 'primeng/checkbox';
-import { AccordionModule } from 'primeng/accordion';
 import { PanelModule } from "primeng/panel";
 import { SliderModule } from "primeng/slider";
+import { AvatarModule } from "primeng/avatar";
 
 @NgModule({
     declarations: [
@@ -41,7 +41,8 @@ import { SliderModule } from "primeng/slider";
         DividerModule,
         CheckboxModule,
         PanelModule,
-        SliderModule
+        SliderModule,
+        AvatarModule
     ]
 })
 export class PagesModule { }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriesGroupService } from 'src/app/services/categories-group.service';
 import { Category } from 'src/app/services/category.service';
-import { Product, ProductService } from 'src/app/services/product.service';
+import { Color, Product, ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -31,6 +31,7 @@ export class ProductsComponent implements OnInit {
   currentLayout = "list";
   products?: Product[];
   categories?: Category[];
+  colors?: Color[];
 
   constructor(private categoriesGroupService: CategoriesGroupService,
               private productService: ProductService,
@@ -49,6 +50,8 @@ export class ProductsComponent implements OnInit {
         .subscribe(val => {
           this.products = val;
         });
+      this.productService.getColors()
+        .subscribe(val => this.colors = val);
     });
   }
 }
