@@ -1,8 +1,14 @@
+@use "../../utilities/mediaQuery.scss";
+
 :host {
     img {
         max-width: 176px;
         width: auto;
         height: auto;
         padding: .75rem 1.25rem;
+
+        @include mediaQuery.Tablets {
+            max-width: 135px;
+        }
     }
 }

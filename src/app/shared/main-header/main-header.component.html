@@ -1,6 +1,11 @@
 <div class="container">
+    <p-button 
+        class="main-header__sidebar-btn"
+        icon="fa-solid fa-bars" 
+        styleClass="p-button-text"
+        (click)="sidebarVisible = true"></p-button>
     <ecommerce-logo></ecommerce-logo>
-    <div class="p-inputgroup">
+    <div class="p-inputgroup main-header__search-box">
         <p-multiSelect defaultLabel="Select a City"  class="p-inputgroup-addon" [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-multiSelect>
         <input #searchInput type="text" name="search" pInputText placeholder="Search..." />
         <button type="button" (click)="search(searchInput.value)" pButton label="Search" styleClass="p-button-warn"></button>
@@ -32,19 +37,38 @@
                 </ng-template>
             </p-dialog>
         </div>
-        <a routerLink="/cart" styleClass="p-button-text" class="ecommerce-link main-header__toolbar__link">
-            <p-avatar pBadge 
-                value="4" 
-                icon="fa-solid fa-basket-shopping"
-                severity="danger"
-                [style]="{ 'background-color': 'transparent' }"></p-avatar>
-        </a>
-        <a routerLink="/fav" styleClass="p-button-text" class="ecommerce-link main-header__toolbar__link">
-            <p-avatar pBadge 
-                icon="fa-solid fa-heart"
-                value="4" 
-                severity="danger"
-                [style]="{ 'background-color': 'transparent' }"></p-avatar>
-        </a>
+        <div class="main-header__links">
+            <a routerLink="/cart" styleClass="p-button-text" class="ecommerce-link main-header__toolbar__link">
+                <p-avatar pBadge 
+                    value="4" 
+                    icon="fa-solid fa-basket-shopping"
+                    severity="danger"
+                    [style]="{ 'background-color': 'transparent' }"></p-avatar>
+            </a>
+            <a routerLink="/fav" styleClass="p-button-text" class="ecommerce-link main-header__toolbar__link">
+                <p-avatar pBadge 
+                    icon="fa-solid fa-heart"
+                    value="4" 
+                    severity="danger"
+                    [style]="{ 'background-color': 'transparent' }"></p-avatar>
+            </a>
+        </div>
     </div>
 </div>
+
+<p-sidebar [(visible)]="sidebarVisible">
+    <ng-template pTemplate="header"></ng-template>
+    <ng-template pTemplate="content">
+        <p-panelMenu [model]="categories"></p-panelMenu>
+        <p-divider></p-divider>
+        <a routerLink="/cart" styleClass="p-button-text" class="ecommerce-link main-header__toolbar__link">
+            <i class="fa-solid fa-basket-shopping"></i>
+            Cart (0)
+        </a>
+        <p-divider></p-divider>
+        <a routerLink="/fav" styleClass="p-button-text" class="ecommerce-link main-header__toolbar__link">
+            <i class="fa-solid fa-heart"></i>
+            Favorites (1)
+        </a>
+    </ng-template>
+</p-sidebar>

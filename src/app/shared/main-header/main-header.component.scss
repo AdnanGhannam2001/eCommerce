@@ -1,4 +1,5 @@
 @use "../../utilities/mixin.scss";
+@use "../../utilities/mediaQuery.scss";
 
 :host {
     display: block;
@@ -9,11 +10,28 @@
     }
 
     .main-header {
+        &__sidebar-btn {
+            display: none;
+        }
+
         &__toolbar {
             @include mixin.flex();
 
             &__link {
                 padding: 0 .75em;
+            }
+        }
+    }
+
+    @include mediaQuery.Laptops {
+        .main-header {
+            &__sidebar-btn {
+                display: block;
+            }
+
+            &__search-box,
+            &__links {
+                display: none;;
             }
         }
     }

@@ -15,7 +15,7 @@
         }
 
         &__bottom {
-            @include mixin.grid(1fr, repeat(4, 1fr), 0, $padding);
+            @include mixin.grid(1fr, repeat(auto-fill, minmax(250px, 1fr)), 0, $padding);
             justify-content: center;
             padding: $padding;
 

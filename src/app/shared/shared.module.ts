@@ -23,6 +23,9 @@ import { CategoryComponent } from './category/category.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductGridComponent } from './product-grid/product-grid.component';
 import { RatingModule } from "primeng/rating"
+import { SidebarModule } from 'primeng/sidebar';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { DividerModule } from "primeng/divider";
 
 
 
@@ -52,7 +55,10 @@ import { RatingModule } from "primeng/rating"
     BadgeModule,
     AccordionModule,
     BreadcrumbModule,
-    RatingModule
+    RatingModule,
+    SidebarModule,
+    PanelMenuModule,
+    DividerModule
   ],
   exports: [
     NavbarComponent,
