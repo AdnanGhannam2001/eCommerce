@@ -3,10 +3,20 @@
 :host {
     font-size: .75em;
     @include mixin.flex(center, center, column);
-    gap: .25em;
+    gap: .5em;
     text-align: center;
 
     .feature-item {
+        &__icon {
+            margin-bottom: .5em;
+            color: var(--clr-footer-feature-item-icon);
+            cursor: pointer;
+
+            &:hover {
+                animation: icon-move 2s forwards linear;
+            }
+        }
+
         &__title {
             text-transform: uppercase;
         }
@@ -14,5 +24,17 @@
         &__desc {
             color: var(--clr-footer-feature-item-desc);
         }
+    }
+}
+
+@keyframes icon-move {
+    25% {
+        transform: translateY(5px);
+    }
+    75% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
