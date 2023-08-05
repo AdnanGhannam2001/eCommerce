@@ -28,5 +28,8 @@
         class="add-to-cart"
         [disabled]="!product.available"
     ></p-button>
-    <a [routerLink]="'/product/' + product.id" class="ecommerce-link">View product</a>
+    <a [routerLink]="'/product/' + product.id" class="ecommerce-link">
+        <i class="fa-regular fa-eye"></i>
+        View product
+    </a>
 </div>

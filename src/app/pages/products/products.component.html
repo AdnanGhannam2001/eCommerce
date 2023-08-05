@@ -4,7 +4,7 @@
         <p-panel header="Product Categories">
             <div *ngFor="let category of categories" class="field-checkbox">
                 <p-checkbox name="group" [value]="category" [inputId]="category.id"></p-checkbox>
-                <label [for]="category.id">{{ category.name }}</label>
+                <label [for]="category.id">{{ category.name }} (1)</label>
             </div>
         </p-panel>
         <p-divider></p-divider>
@@ -15,23 +15,15 @@
         <p-panel header="Color" [toggleable]="true">
             <div *ngFor="let category of categories" class="field-checkbox">
                 <p-checkbox name="group" [value]="category" [inputId]="category.id"></p-checkbox>
-                <label [for]="category.id">{{ category.name }}</label>
+                <label [for]="category.id">{{ category.name }} (1)</label>
                 <span>c</span>
             </div>
         </p-panel>
         <p-divider></p-divider>
-        <p-panel header="Size" [toggleable]="true">
-            <div *ngFor="let category of categories" class="field-checkbox">
-                <p-checkbox name="group" [value]="category" [inputId]="category.id"></p-checkbox>
-                <label [for]="category.id">{{ category.name }}</label>
-                <span>(10)</span>
-            </div>
-        </p-panel>
         <p-panel header="Availability" [toggleable]="true">
-            <div *ngFor="let category of categories" class="field-checkbox">
-                <p-checkbox name="group" [value]="category" [inputId]="category.id"></p-checkbox>
-                <label [for]="category.id">{{ category.name }}</label>
-                <span>(10)</span>
+            <div *ngFor="let availability of availabilities" class="field-checkbox">
+                <p-checkbox name="group" [value]="availability" [inputId]="availability.id"></p-checkbox>
+                <label [for]="availability.id">{{ availability.name }} (10)</label>
             </div>
         </p-panel>
     </div>

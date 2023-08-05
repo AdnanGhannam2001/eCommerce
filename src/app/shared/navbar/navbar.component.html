@@ -2,7 +2,7 @@
     <div class="navbar__view-categories">
         <p-button #btn 
             type="button" 
-            icon="pi pi-bars" 
+            icon="fa-solid fa-bars" 
             label="Browse All Categories"
             styleClass="p-button-text"
             (click)="categoryMenu.toggle($event)">
@@ -13,6 +13,9 @@
         <p-megaMenu [model]="navigators"></p-megaMenu>
     </div>
     <div class="navbar__sales">
-        <a class="ecommerce-link" routerLink="/">Sale $20 Off Your First Order.</a>
+        <a class="ecommerce-link" routerLink="/">
+            <i class="fa-regular fa-percent"></i>
+            Sale $20 Off Your First Order.
+        </a>
     </div>
 </div>

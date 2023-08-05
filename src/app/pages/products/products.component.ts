@@ -17,6 +17,17 @@ export class ProductsComponent implements OnInit {
 
   priceRange = [0, 1000];
 
+  availabilities = [
+    {
+      id: crypto.randomUUID(),
+      name: "In Stock"
+    },
+    {
+      id: crypto.randomUUID(),
+      name: "Out of Stock"
+    }
+  ];
+
   currentLayout = "list";
   products?: Product[];
   categories?: Category[];
