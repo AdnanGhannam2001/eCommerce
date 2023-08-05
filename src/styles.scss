@@ -91,75 +91,81 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // PrimeNG
-body .p-component {
-    font-family: var(--ff-primary);
-}
-
-.p-tieredmenu .p-menuitem-link .p-icon-wrapper {
-  margin-left:auto;
-}
-
-body .p-megamenu {
-    background: transparent;
-    border: 0px;
-}
-
-body .p-button.p-button-text:enabled {
-    &:active,
-    &:hover {
-        background-color: transparent;
+ecommerce-root {
+    .p-component {
+        font-family: var(--ff-primary);
     }
 
-    &:focus {
-        box-shadow: none;
-    }
-}
-
-// Currently Not Working on Firefox
-body .p-megamenu .p-megamenu-submenu-header:has(.ng-star-inserted:empty) {
-    padding: 0;
-}
-
-body .p-inputgroup {
-    width: 600px;
-
-    >*:not(:first-child) {
-        border-left-color: transparent;
+    .p-tieredmenu .p-menuitem-link .p-icon-wrapper {
+    margin-left:auto;
     }
 
-    .p-inputgroup-addon {
-        flex: 2.5;
-        padding: 0;
-        border-width: 0;
+    .p-button.p-button-text:enabled {
+        &:active,
+        &:hover {
+            background-color: transparent;
+        }
 
-
-        .p-multiselect {
-            border-radius: inherit;
+        &:focus {
+            box-shadow: none;
         }
     }
 
-    .p-inputtext {
-        flex: 4;
-    }
-}
-
-body .p-dataview {
-    .p-paginator {
-        background-color: transparent;
-        padding: 1.5em;
-    }
-}
-
-body .p-component .field-checkbox {
-    @include mixin.flex;
-    gap: .5em;
-    user-select: none;
-    
-    &:not(:last-child) {
-        margin-bottom: .5em;
+    .p-megamenu {
+        background: transparent;
+        border: 0px;
     }
 
-    label {
-        flex: 1;
+    // Currently Not Working on Firefox
+    .p-megamenu .p-megamenu-submenu-header:has(.ng-star-inserted:empty) {
+        padding: 0;
+    }
+
+    .p-inputgroup {
+        width: 600px;
+
+        >*:not(:first-child) {
+            border-left-color: transparent;
+        }
+
+        .p-inputgroup-addon {
+            flex: 2.5;
+            padding: 0;
+            border-width: 0;
+
+
+            .p-multiselect {
+                border-radius: inherit;
+            }
+        }
+
+        .p-inputtext {
+            flex: 4;
+        }
+    }
+
+    .p-dataview {
+        .p-paginator {
+            background-color: transparent;
+            padding: 1.5em;
+        }
+    }
+
+    .p-component .field-checkbox {
+        @include mixin.flex;
+        gap: .5em;
+        user-select: none;
+        
+        &:not(:last-child) {
+            margin-bottom: .5em;
+        }
+
+        label {
+            flex: 1;
+        }
+    }
+
+    .p-scrolltop .p-icon-wrapper {
+        scale: unset !important;
     }
 }
