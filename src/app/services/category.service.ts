@@ -21,7 +21,9 @@ export class CategoryService {
       { id: "2", name: "Desktops & Monitors" },
       { id: "3", name: "Hard Drives & Memory" },
       { id: "4", name: "Networking & Internet" },
-      { id: "5", name: "Computer Accessories" }
+      { id: "5", name: "Accessories" },
+      { id: "6", name: "Watches" },
+      { id: "7", name: "Smart Phones & Tablets" },
     ];
     this.categories$ = of(this.categories);
   }

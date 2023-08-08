@@ -19,6 +19,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { PanelModule } from "primeng/panel";
 import { SliderModule } from "primeng/slider";
 import { AvatarModule } from "primeng/avatar";
+import { RadioButtonModule } from "primeng/radiobutton";
 
 @NgModule({
     declarations: [
@@ -42,7 +43,8 @@ import { AvatarModule } from "primeng/avatar";
         CheckboxModule,
         PanelModule,
         SliderModule,
-        AvatarModule
+        AvatarModule,
+        RadioButtonModule
     ]
 })
 export class PagesModule { }

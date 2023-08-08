@@ -3,19 +3,23 @@
     <div class="products__sidebar">
         <p-panel header="Product Categories">
             <div *ngFor="let category of categories" class="field-checkbox">
-                <p-checkbox name="group" [value]="category" [inputId]="category.id"></p-checkbox>
-                <label [for]="category.id">{{ category.name }} (1)</label>
+                <p-checkbox name="group" [value]="category.name" [(ngModel)]="selectedCategories" [inputId]="category.id"></p-checkbox>
+                <label [for]="category.id">{{ category.name }}</label>
             </div>
         </p-panel>
         <p-divider></p-divider>
         <p-panel header="Price" [toggleable]="true">
-            <p-slider [(ngModel)]="priceRange" [range]="true"></p-slider>
+            <p-slider [min]="0" [max]="1000" [(ngModel)]="priceRange" [range]="true"></p-slider>
         </p-panel>
         <p-divider></p-divider>
         <p-panel header="Color" [toggleable]="true">
             <div *ngFor="let color of colors" class="field-checkbox">
-                <p-checkbox name="group" [value]="color" [inputId]="color.id"></p-checkbox>
-                <label [for]="color.id">{{ color.name }} (1)</label>
+                <p-checkbox name="color" 
+                    [value]="color" 
+                    [(ngModel)]="selectedColors" 
+                    [inputId]="color.id"
+                ></p-checkbox>
+                <label [for]="color.id">{{ color.name }}</label>
                 <p-avatar 
                     [title]="color.value" 
                     [style]="{ 'background-color': color.value }" 
@@ -25,15 +29,19 @@
         </p-panel>
         <p-divider></p-divider>
         <p-panel header="Availability" [toggleable]="true">
-            <div *ngFor="let availability of availabilities" class="field-checkbox">
-                <p-checkbox name="group" [value]="availability" [inputId]="availability.id"></p-checkbox>
-                <label [for]="availability.id">{{ availability.name }} (10)</label>
+            <div *ngFor="let av of availabilities" class="field-checkbox">
+                <p-radioButton name="available" [value]="av.value" [(ngModel)]="availability" [inputId]="av.id"></p-radioButton>
+                <label [for]="av.id">{{ av.name }}</label>
             </div>
         </p-panel>
+        <p-button label="Apply filter" 
+            [style]="{ 'margin': '1em' }"
+            (onClick)="applyFilter()"
+        ></p-button>
     </div>
-    <p-dataView #dv [value]="products || []" [layout]="currentLayout" [rows]="5" [paginator]="true">
+    <p-dataView #dv [value]="displayProducts || []" [layout]="currentLayout" [rows]="5" [paginator]="true">
         <ng-template pTemplate="header">
-            <span class="products__count">{{ products?.length }} products</span>
+            <span class="products__count">{{ displayProducts?.length }} products</span>
             <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
             <p-dropdown [options]="['Sort by 1', 'Sort by 2']" placeholder="Sort By Price"></p-dropdown>
         </ng-template>

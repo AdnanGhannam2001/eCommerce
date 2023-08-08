@@ -10,26 +10,34 @@ import { Color, Product, ProductService } from 'src/app/services/product.service
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  selectedColors: Color[] = [];
+  selectedSizes: string[] = [];
+  selectedCategories: string[] = [];
+  availability?: boolean;
+
   breadcrumbItems = [
     { label: "Home" },
     { label: "Products" },
   ];
 
-  priceRange = [0, 1000];
+  priceRange: [number, number] = [0, 1000];
 
   availabilities = [
     {
       id: crypto.randomUUID(),
-      name: "In Stock"
+      name: "In Stock",
+      value: true
     },
     {
       id: crypto.randomUUID(),
-      name: "Out of Stock"
+      name: "Out of Stock",
+      value: false
     }
   ];
 
   currentLayout = "list";
   products?: Product[];
+  displayProducts?: Product[];
   categories?: Category[];
   colors?: Color[];
 
@@ -49,9 +57,21 @@ export class ProductsComponent implements OnInit {
       this.productService.getAll()
         .subscribe(val => {
           this.products = val;
+          this.displayProducts = this.products;
         });
       this.productService.getColors()
         .subscribe(val => this.colors = val);
     });
+  }
+
+  applyFilter() {
+    console.log(this.availability);
+    if (this.products) {
+      this.displayProducts = this.productService.filter(this.products,
+        this.availability,
+        this.priceRange,
+        this.selectedCategories,
+        this.selectedColors);
+    }
   }
 }
