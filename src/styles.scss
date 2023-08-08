@@ -53,6 +53,7 @@
     --clr-product-view-price: var(--blue);
     --clr-product-view-count-border: var(--semi-gray);
     --clr-product-view-info: var(--dark-gray);
+    --clr-product-view-thumbnail-border: var(--semi-gray);
 
     --bg-time-down: var(--red);
     --clr-time-down: var(--white);
@@ -174,5 +175,9 @@ ecommerce-root {
 
     .p-scrolltop .p-icon-wrapper {
         scale: unset !important;
+    }
+
+    .p-galleria .p-galleria-thumbnail-container {
+        background-color: transparent;
     }
 }

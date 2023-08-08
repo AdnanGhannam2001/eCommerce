@@ -65,6 +65,8 @@
         .product-view {
             &__img-box {
                 width: 65px;
+                border: 1px solid var(--clr-product-view-thumbnail-border);
+                border-radius: 3px;
                 
                 img {
                     width: 100%;
