@@ -17,7 +17,8 @@
 
     --clr-primary: var(--black);
     --clr-border: var(--light-gray);
-    --bg-primary: var(--white);
+    --bg-primary: var(--light-gray);
+    --bg-secondary: var(--white);
 
     --clr-link: var(--blue);
     
@@ -78,10 +79,6 @@ body {
 // Custom
 ul {
     list-style-type: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    // font-weight: 600;
 }
 
 .container {

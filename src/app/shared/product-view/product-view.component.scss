@@ -3,6 +3,9 @@
 :host {
     @include mixin.grid(1fr, repeat(auto-fill, minmax(500px, 1fr)), 1em, 2em);
     padding: 2em;
+    background-color: var(--bg-secondary);
+    border-radius: 3px;
+    margin: 1em 0;
 
     .product-view {
         &__name {

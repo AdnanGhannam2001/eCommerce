@@ -4,6 +4,7 @@
 :host {
     display: block;
     border-bottom: 1px solid var(--clr-border);
+    background-color: var(--bg-secondary);
 
     .container {
         @include mixin.flex(space-between);

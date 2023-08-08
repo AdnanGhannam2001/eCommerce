@@ -2,7 +2,6 @@
 
 :host {
     display: block;
-    background-color: var(--bg-products);
 
     .container {
         @include mixin.flex(stretch, flex-start);
