@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, concatAll, filter, first, of, take } from 'rxjs';
+import { Observable, concatAll, filter, first, of, retry, take } from 'rxjs';
 import { Category } from './category.service';
 
 export interface Color {
@@ -20,6 +20,12 @@ export interface Vendor {
   name: string;
 };
 
+export interface Sale {
+  startedAt: number;
+  endsAt: number;
+  value: number;
+}
+
 export interface Product {
   id: string;
   name: string
@@ -37,7 +43,7 @@ export interface Product {
   returnInfo: string;
   available: { color: Color; size: string; }[];
   vendor: Vendor;
-  sale?: number;
+  sale?: Sale;
 };
 
 @Injectable({
@@ -106,7 +112,12 @@ export class ProductService {
           { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
         ],
         createdAt: Date.now(),
-        rate: 0
+        rate: 0,
+        sale: {
+          startedAt: Date.now(),
+          endsAt: Date.now() + 10000,
+          value: 10
+        }
       },
       {
         id: "2",
@@ -147,7 +158,7 @@ export class ProductService {
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
           { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
         ],
-        createdAt: Date.now(),
+        createdAt: Date.now() - 1000000000000,
         rate: 0
       },
       {
@@ -615,6 +626,19 @@ export class ProductService {
     return product.available
       .filter(item => item.size === size && item.color.value === color)
       .length;
+  }
+
+  getFlag(product: Product) {
+    if (product.sale) {
+      return "-" + product.sale.value + "%"
+    }
+
+    const oneWeekInMilliseconds = 7 * 24 * 60 * 60 * 1000; 
+    if (product.createdAt > Date.now() - oneWeekInMilliseconds) {
+      return "New";
+    }
+
+    return null;
   }
 
   filter(products: Product[], 

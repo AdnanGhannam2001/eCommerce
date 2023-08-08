@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/services/product.service';
+import { Product, ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'ecommerce-product-grid[product]',
@@ -8,4 +8,11 @@ import { Product } from 'src/app/services/product.service';
 })
 export class ProductGridComponent {
   @Input() product!: Product;
+  flag: string | null = null;
+
+  constructor(private productService: ProductService) { }
+
+  ngOnInit() {
+    this.flag = this.productService.getFlag(this.product);
+  }
 }

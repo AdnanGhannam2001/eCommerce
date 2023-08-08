@@ -1,25 +1,24 @@
-<div class="product-list__top">
-    <!-- TODO add if -->
-    <span class="product-list__flag">New</span>
+<div class="product-grid__top">
+    <span class="product-grid__flag" *ngIf="flag">{{ flag }}</span>
     <img [src]="product.images[0].big"/>
 </div>
 
-<div class="product-list__bottom">
-    <h4 class="product-list__name">
+<div class="product-grid__bottom">
+    <h4 class="product-grid__name">
         <a [routerLink]="'/product/' + product.id" class="ecommerce-link">{{ product.name }}</a>
     </h4>
-    <div class="product-list__rating">
+    <div class="product-grid__rating">
         <p-rating [(ngModel)]="product.rate" [readonly]="true" [cancel]="false"></p-rating>
         <span>({{ product.reviews?.length || 0 }} reviews)</span>
     </div>
-    <h2 class="product-list__cost">${{ product.price }}</h2>
-    <small class="product-list__stock"
-        [class.in]="product.available">
-        {{ product.available ? "In stock" : "out of stock" }}
-        ({{ product.available }})
+    <h2 class="product-grid__cost">${{ product.price }}</h2>
+    <small class="product-grid__stock"
+        [class.in]="product.available.length">
+        {{ product.available.length ? "In stock" : "out of stock" }}
+        ({{ product.available.length }})
     </small>
     <p-button label="Add To Cart"
         class="add-to-cart"
-        [disabled]="!product.available"
+        [disabled]="!product.available.length"
     ></p-button>
 </div>

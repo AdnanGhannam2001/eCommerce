@@ -1,6 +1,5 @@
 <div class="product-list__left">
-    <!-- TODO add if -->
-    <span class="product-list__flag">New</span>
+    <span class="product-list__flag" *ngIf="flag">{{ flag }}</span>
     <img [src]="product.images[0].big"/>
 </div>
 
@@ -19,14 +18,14 @@
 
 <div class="product-list__right">
     <small class="product-list__stock"
-        [class.in]="product.available">
-        {{ product.available ? "In stock" : "out of stock" }}
-        ({{ product.available }})
+        [class.in]="product.available.length">
+        {{ product.available.length ? "In stock" : "out of stock" }}
+        ({{ product.available.length }})
     </small>
     <h2 class="product-list__cost">${{ product.price }}</h2>
     <p-button label="Add To Cart"
         class="add-to-cart"
-        [disabled]="!product.available"
+        [disabled]="!product.available.length"
     ></p-button>
     <a [routerLink]="'/product/' + product.id" class="ecommerce-link">
         <i class="fa-regular fa-eye"></i>

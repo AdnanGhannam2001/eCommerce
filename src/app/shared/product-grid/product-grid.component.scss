@@ -12,7 +12,7 @@
     border-radius: 3px;
 
     &:hover {
-        .product-list {
+        .product-grid {
             &__bottom {
                 transform: translateY(0);
             }
@@ -26,7 +26,7 @@
         }
     }
 
-    .product-list {
+    .product-grid {
         &__top {
             position: relative;
             padding-top: 175px;
@@ -55,7 +55,8 @@
             gap: .5em;
             transform: translateY($tr);
             margin-top: calc(-1 * $tr);
-            background-color: var(--bg-primary);
+            padding-top: .5em;
+            background-color: var(--bg-secondary);
             transition: all .5s ease;
         }
 
