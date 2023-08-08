@@ -1,0 +1,77 @@
+@use "../../utilities/mixin.scss";
+
+:host {
+    @include mixin.grid(1fr, repeat(auto-fill, minmax(500px, 1fr)), 1em, 2em);
+    padding: 2em;
+
+    .product-view {
+        &__name {
+            font-weight: 500;
+        }
+
+        &__review-box {
+            @include mixin.flex(flex-start);
+            gap: .5em;
+            padding: 1em 0;
+        }
+
+        &__price {
+            font-weight: 600;
+            color: var(--clr-product-view-price);
+        }
+
+        &__spec {
+            list-style-type: disc;
+            margin: 1.5em 1em;
+        }
+
+        &__count {
+            @include mixin.flex;
+            gap: .5em;
+            padding: 1em 0;
+
+            ::ng-deep {
+                .p-inputwrapper {
+                    border: 1px solid var(--clr-product-view-count-border);
+                    border-radius: 100px;
+                }
+
+                .p-inputtext {
+                    border: none;
+                }
+            }
+        }
+
+        &__info {
+            margin: .5em 0;
+            color: var(--clr-product-view-info);
+            font-weight: 500;
+            font-size: .85em;
+        }
+    }
+
+    ::ng-deep {
+        p-button {
+            flex: 1;
+
+            .p-button {
+                width: 100%;
+            }
+        }
+
+        .product-view {
+            &__img-box {
+                width: 65px;
+                
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        .p-message-wrapper {
+            gap: 1em;
+            flex-wrap: wrap;
+        }
+    }
+}

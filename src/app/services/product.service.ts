@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, concatAll, filter, first, of } from 'rxjs';
+import { Observable, concatAll, filter, first, of, take } from 'rxjs';
 
 export interface Color {
   id: string;
@@ -22,13 +22,14 @@ export interface Product {
   information?: string[][];
   // description: 
   mainImage: string;
-  images?: string[];
+  images: { big: string, small: string}[]
   reviews?: Review[];
-  description: string[];
+  specification: string[];
   shippingInfo: string;
   returnInformation: string;
   availableColors?: Color[];
   available: number;
+  availableSizes?: string[];
   // vendor
   // tag[]?
   createdAt: number;
@@ -67,10 +68,21 @@ export class ProductService {
         name: "Stainless Steel Case with Braided Solo Loop",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
+        availableSizes: ["128GB", "256GB", "512GB"],
+        availableColors: [
+          { id: "1", name: "red", value: "#f00" },
+          { id: "2", name: "green", value: "#0f0" },
+          { id: "3", name: "blue", value: "#00f" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -79,7 +91,12 @@ export class ProductService {
         name: "MacBook Air M1 2020 8GB 256GB/7-Core GPU",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -91,7 +108,12 @@ export class ProductService {
         name: "Apple Watch Aluminum Case with Sport Loop",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -103,7 +125,12 @@ export class ProductService {
         name: "TalkWorks iPhone Charger Lightning Cable",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -115,7 +142,12 @@ export class ProductService {
         name: "Apple Watch Magnetic Fast Charger to USB-A",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -127,7 +159,12 @@ export class ProductService {
         name: "Apple Airpods Pro MWP22A M/A Bluetooth 7.1",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -139,7 +176,12 @@ export class ProductService {
         name: "Logitech G203 Wired 8000 DPI For PC/Mac",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -151,7 +193,12 @@ export class ProductService {
         name: "HP Pavilion Core i7 8GB RAM/1TB SSD",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -163,7 +210,12 @@ export class ProductService {
         name: "Apple iPad Pro M1 11-inch 2021 Wi-Fi 128GB",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -175,7 +227,12 @@ export class ProductService {
         name: "Apple iPad Air 4 10.9-inch Wi-Fi 256GB",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -187,7 +244,12 @@ export class ProductService {
         name: "Apple iPhone 11 Pro 256GB Space Gray - Unlocked",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -199,7 +261,12 @@ export class ProductService {
         name: "Samsung Galaxy S21 Ultra 128GB - Black",
         price: 500,
         mainImage: "/assets/product.webp",
-        description: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
+        images: [
+          { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
+          { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
+          { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
+        ],
+        specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
         available: 1,
@@ -217,7 +284,8 @@ export class ProductService {
   getById(id: string) {
     return this.products$.pipe(
       concatAll(),
-      first((product: Product) => product.id == id));
+      filter((product: Product) => product.id == id),
+      take(1));
   }
 
   getByCategory(category: string) {

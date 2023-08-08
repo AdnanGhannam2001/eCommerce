@@ -10,7 +10,9 @@
     --green: #008a00;
     --yellow: #ffb800;
     --black: #212529;
+    --dark-gray: #515d66;
     --gray: #8d979e;
+    --semi-gray: #e5e8ec;
     --light-gray: #f1f5f6;
 
     --clr-primary: var(--black);
@@ -45,6 +47,13 @@
     --clr-product-flag: var(--white);
     --bg-product-new-flag: var(--green);
     --bg-product-sale-flag: var(--red);
+
+    --clr-product-view-price: var(--blue);
+    --clr-product-view-count-border: var(--semi-gray);
+    --clr-product-view-info: var(--dark-gray);
+
+    --bg-time-down: var(--red);
+    --clr-time-down: var(--white);
 }
 
 *,

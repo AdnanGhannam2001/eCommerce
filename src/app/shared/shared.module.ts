@@ -26,6 +26,12 @@ import { RatingModule } from "primeng/rating"
 import { SidebarModule } from 'primeng/sidebar';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { DividerModule } from "primeng/divider";
+import { ProductViewComponent } from './product-view/product-view.component';
+import { GalleriaModule } from "primeng/galleria";
+import { MessagesModule } from "primeng/messages"
+import { UiComponentsModule } from '../ui-components/ui-components.module';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 
 
@@ -39,11 +45,13 @@ import { DividerModule } from "primeng/divider";
     BreadcrumbComponent,
     CategoryComponent,
     ProductListComponent,
-    ProductGridComponent
+    ProductGridComponent,
+    ProductViewComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    UiComponentsModule,
     TieredMenuModule,
     ButtonModule,
     MegaMenuModule,
@@ -58,7 +66,11 @@ import { DividerModule } from "primeng/divider";
     RatingModule,
     SidebarModule,
     PanelMenuModule,
-    DividerModule
+    DividerModule,
+    GalleriaModule,
+    MessagesModule,
+    SelectButtonModule,
+    InputNumberModule
   ],
   exports: [
     NavbarComponent,
@@ -68,7 +80,8 @@ import { DividerModule } from "primeng/divider";
     BreadcrumbComponent,
     CategoryComponent,
     ProductListComponent,
-    ProductGridComponent
+    ProductGridComponent,
+    ProductViewComponent
   ]
 })
 export class SharedModule { }
