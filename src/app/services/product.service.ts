@@ -14,27 +14,29 @@ export interface Review {
   rate: number;
 };
 
+export interface Vendor {
+  id: string;
+  name: string;
+};
+
 export interface Product {
   id: string;
   name: string
+  createdAt: number;
   category?: string;
+  // tag[]?
   price: number;
-  information?: string[][];
-  // description: 
-  mainImage: string;
+  description: string;
+  information: string[][]; // key: value
   images: { big: string, small: string}[]
   reviews?: Review[];
-  specification: string[];
+  rate: number;
+  specification: string[]; // 3
   shippingInfo: string;
   returnInformation: string;
-  availableColors?: Color[];
-  available: number;
-  availableSizes?: string[];
-  // vendor
-  // tag[]?
-  createdAt: number;
+  available: { color: Color; size: string; }[];
+  vendor: Vendor;
   sale?: number;
-  rate: number;
 };
 
 @Injectable({
@@ -67,21 +69,39 @@ export class ProductService {
         id: "1",
         name: "Stainless Steel Case with Braided Solo Loop",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
-        availableSizes: ["128GB", "256GB", "512GB"],
-        availableColors: [
-          { id: "1", name: "red", value: "#f00" },
-          { id: "2", name: "green", value: "#0f0" },
-          { id: "3", name: "blue", value: "#00f" },
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
         ],
         createdAt: Date.now(),
         rate: 0
@@ -90,16 +110,40 @@ export class ProductService {
         id: "2",
         name: "MacBook Air M1 2020 8GB 256GB/7-Core GPU",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -107,16 +151,40 @@ export class ProductService {
         id: "3",
         name: "Apple Watch Aluminum Case with Sport Loop",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -124,16 +192,40 @@ export class ProductService {
         id: "4",
         name: "TalkWorks iPhone Charger Lightning Cable",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -141,16 +233,40 @@ export class ProductService {
         id: "5",
         name: "Apple Watch Magnetic Fast Charger to USB-A",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -158,16 +274,40 @@ export class ProductService {
         id: "6",
         name: "Apple Airpods Pro MWP22A M/A Bluetooth 7.1",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -175,16 +315,40 @@ export class ProductService {
         id: "7",
         name: "Logitech G203 Wired 8000 DPI For PC/Mac",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -192,16 +356,40 @@ export class ProductService {
         id: "8",
         name: "HP Pavilion Core i7 8GB RAM/1TB SSD",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -209,16 +397,40 @@ export class ProductService {
         id: "9",
         name: "Apple iPad Pro M1 11-inch 2021 Wi-Fi 128GB",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -226,16 +438,40 @@ export class ProductService {
         id: "10",
         name: "Apple iPad Air 4 10.9-inch Wi-Fi 256GB",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -243,16 +479,40 @@ export class ProductService {
         id: "11",
         name: "Apple iPhone 11 Pro 256GB Space Gray - Unlocked",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -260,16 +520,40 @@ export class ProductService {
         id: "12",
         name: "Samsung Galaxy S21 Ultra 128GB - Black",
         price: 500,
-        mainImage: "/assets/product.webp",
         images: [
           { big: "/assets/product-1-1.webp", small: "/assets/product-1-1-s.avif" },
           { big: "/assets/product-1-2.webp", small: "/assets/product-1-2-s.avif" },
           { big: "/assets/product-1-3.webp", small: "/assets/product-1-3-s.avif" },
         ],
+        description: "",
+        information: [
+          ["Color", "Space Black, Silver, Red"],
+          ["Product Type", "New, Renewed, Refurbished, Used"],
+          ["Storage", "64GB, 512GB, 2TB"],
+          ["Brand", "Apple"],
+          ["Display", "10.9-inch Liquid Retina display with True Tone"],
+          ["Chip (CPU)", "Apple M1 with 8-core CPU, 8-core GPU"],
+          ["Camera and Video", "12MP - 4K Video"],
+          ["Front Camera", "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"],
+          ["Battery Life", "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"],
+          ["In the Box", "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"],
+          ["Height", "9.74 inches (247.6 mm)"],
+          ["Width", "7.02 inches (178.5 mm)"],
+          ["Weight", "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"],
+          ["Mobile Network", "5G"],
+        ],
+        vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
         returnInformation: "Easy and complimentary, within 14 days",
-        available: 1,
+        available: [
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
+          { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
+          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
+          { color: { id: "10", name: "Purple", value: "#800080" }, size: "512GB" },
+        ],
         createdAt: Date.now(),
         rate: 0
       },
@@ -296,5 +580,27 @@ export class ProductService {
 
   getColors() {
     return this.colors$;
+  }
+
+  getAvailableColors(product: Product) {
+    const colors: Color[] = [];
+
+    product.available.forEach(item => {
+      if (colors.every(val => val.name != item.color.name)) {
+        colors.push(item.color);
+      }
+    });
+
+    return colors;
+  }
+
+  getAvailableSizes(product: Product) {
+    return [...new Set(product.available.map(item => item.size))]
+  }
+
+  getCount(product: Product, size?: string, color?: string) {
+    return product.available
+      .filter(item => item.size === size && item.color.value === color)
+      .length;
   }
 }

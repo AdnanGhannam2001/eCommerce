@@ -32,6 +32,7 @@ import { MessagesModule } from "primeng/messages"
 import { UiComponentsModule } from '../ui-components/ui-components.module';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { ProgressBarModule } from "primeng/progressbar";
 
 
 
@@ -70,7 +71,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     GalleriaModule,
     MessagesModule,
     SelectButtonModule,
-    InputNumberModule
+    InputNumberModule,
+    ProgressBarModule
   ],
   exports: [
     NavbarComponent,

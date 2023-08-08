@@ -21,7 +21,6 @@ export class ProductComponent implements OnInit {
       this.productService.getById(id!).subscribe({
         next: val => {
           this.product = val;
-          console.log(this.product)
         },
         complete: () => {
           // NOT_FOUND

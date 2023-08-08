@@ -4,6 +4,8 @@
     [containerStyle]="{ 'max-width': '640px', 'margin': '0 auto 1em auto' }"
     [responsiveOptions]="responsiveOptions" 
     [numVisible]="5" 
+    [autoPlay]="true"
+    [circular]="true"
     [(activeIndex)]="currentImage">
     <ng-template pTemplate="item" let-item>
         <img [src]="item.big" style="width: 100%;" />
@@ -57,22 +59,29 @@
         </ng-template>
     </p-messages>
     <p-divider></p-divider>
-    <p-selectButton *ngIf="product.availableSizes"
-        [options]="product.availableSizes"
+    <p-selectButton *ngIf="sizes"
+        (onChange)="selectChange()"
+        [(ngModel)]="selectedSize"
+        [options]="sizes"
     ></p-selectButton>
     <p-divider></p-divider>
-    <p-selectButton *ngIf="product.availableColors"
-        [options]="product.availableColors"
+    <p-selectButton *ngIf="colors"
+        (onChange)="selectChange()"
+        [(ngModel)]="selectedColor"
+        [options]="colors"
         optionLabel="name"
         optionValue="value"
     ></p-selectButton>
     <p-divider></p-divider>
     <p>
-        Hurry Up! Only {{ product.available }} Left in Stock!
+        {{ count }} Left in Stock
     </p>
+    <p-progressBar [value]="progress" [showValue]="false" [style]="{ height: '6px' }"></p-progressBar>
     <div class="product-view__count">
         <p-inputNumber 
             [ngModel]="1"
+            [min]="0"
+            [max]="count"
             [showButtons]="true" 
             buttonLayout="horizontal" 
             spinnerMode="horizontal" 
@@ -82,9 +91,17 @@
             incrementButtonIcon="fa-regular fa-plus" 
             decrementButtonIcon="fa-solid fa-minus"
         ></p-inputNumber>
-        <p-button label="Add To Cart" styleClass="p-button-rounded"></p-button>
+        <p-button
+            [disabled]="!count"
+            label="Add To Cart"
+            styleClass="p-button-rounded"
+        ></p-button>
     </div>
-    <p-button label="Buy It Now" styleClass="p-button-rounded p-button-secondary"></p-button>
+    <p-button
+        [disabled]="!count"
+        label="Buy It Now" 
+        styleClass="p-button-rounded p-button-secondary"
+    ></p-button>
     <p-divider></p-divider>
     <div class="product-view__info">
         <i class="fa-solid fa-truck"></i>
@@ -98,5 +115,9 @@
     <div class="product-view__info">
         Availability: 
         {{ product.available ? "In Stock" : "Out Of Stock" }}
+    </div>
+    <div class="product-view__info">
+        Vendor: 
+        {{ product.vendor.name }}
     </div>
 </div>
