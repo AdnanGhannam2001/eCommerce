@@ -33,7 +33,7 @@ export interface Product {
   rate: number;
   specification: string[]; // 3
   shippingInfo: string;
-  returnInformation: string;
+  returnInfo: string;
   available: { color: Color; size: string; }[];
   vendor: Vendor;
   sale?: number;
@@ -94,7 +94,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -135,7 +135,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -176,7 +176,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -217,7 +217,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -258,7 +258,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -299,7 +299,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -340,7 +340,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -381,7 +381,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -422,7 +422,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -463,7 +463,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -504,7 +504,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
@@ -545,7 +545,7 @@ export class ProductService {
         vendor: { id: "1", name: "any" },
         specification: [" Screen Size 10.9 inch", "Operating System iOS 14.0", "Product Length 9.74 inch"],
         shippingInfo: "Complimentary ground shipping within 1 to 7 business days",
-        returnInformation: "Easy and complimentary, within 14 days",
+        returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },

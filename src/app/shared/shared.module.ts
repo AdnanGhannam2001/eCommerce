@@ -33,6 +33,9 @@ import { UiComponentsModule } from '../ui-components/ui-components.module';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ProgressBarModule } from "primeng/progressbar";
+import { ProductTabViewComponent } from './product-tab-view/product-tab-view.component';
+import { TabViewModule } from "primeng/tabview";
+import { TableModule } from "primeng/table";
 
 
 
@@ -47,7 +50,8 @@ import { ProgressBarModule } from "primeng/progressbar";
     CategoryComponent,
     ProductListComponent,
     ProductGridComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    ProductTabViewComponent
   ],
   imports: [
     CommonModule,
@@ -72,7 +76,9 @@ import { ProgressBarModule } from "primeng/progressbar";
     MessagesModule,
     SelectButtonModule,
     InputNumberModule,
-    ProgressBarModule
+    ProgressBarModule,
+    TabViewModule,
+    TableModule
   ],
   exports: [
     NavbarComponent,
@@ -83,7 +89,8 @@ import { ProgressBarModule } from "primeng/progressbar";
     CategoryComponent,
     ProductListComponent,
     ProductGridComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    ProductTabViewComponent
   ]
 })
 export class SharedModule { }

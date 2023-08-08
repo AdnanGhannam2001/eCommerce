@@ -1,5 +1,4 @@
 <div class="container">
-    <div class="product__top">
-        <ecommerce-product-view *ngIf="product" [product]="product"></ecommerce-product-view>
-    </div>
+    <ecommerce-product-view *ngIf="product" [product]="product"></ecommerce-product-view>
+    <ecommerce-product-tab-view *ngIf="product" [product]="product"></ecommerce-product-tab-view>
 </div>
