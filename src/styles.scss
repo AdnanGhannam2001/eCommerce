@@ -136,14 +136,13 @@ ecommerce-root {
             border-left-color: transparent;
         }
 
-        .p-inputgroup-addon {
-            flex: 2.5;
-            padding: 0;
-            border-width: 0;
+        p-dropdown {
+            flex: 2.5 !important;
 
-
-            .p-multiselect {
-                border-radius: inherit;
+            .p-dropdown {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                width: 100% !important;
             }
         }
 

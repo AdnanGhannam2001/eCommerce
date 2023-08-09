@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, concatAll, filter, first, of, retry, take } from 'rxjs';
+import { Observable, concatAll, filter, first, map, of, retry, take } from 'rxjs';
 import { Category } from './category.service';
 import products from "../data/products.json";
 import colors from "../data/colors.json";
@@ -66,8 +66,11 @@ export class ProductService {
     this.products$ = of(this.products);
   }
 
-  getAll() {
-    return this.products$;
+  getAll(value: string = "") {
+    return this.products$.pipe(
+      map(products => 
+        products.filter(product => 
+          product.name.toLocaleLowerCase().includes(value?.toLocaleLowerCase() || ""))));
   }
 
   getById(id: string) {

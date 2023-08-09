@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
-import { CategoriesGroupService } from 'src/app/services/categories-group.service';
+import { CategoriesGroup, CategoriesGroupService } from 'src/app/services/categories-group.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
@@ -9,27 +10,22 @@ import { NavigationService } from 'src/app/services/navigation.service';
   styleUrls: ['./main-header.component.scss']
 })
 export class MainHeaderComponent {
-  cities!: any[];
-  selectedCities!: any[];
+  categoriesGroups!: CategoriesGroup[];
+  selectedGroup!: CategoriesGroup;
   sidebarVisible = false;
 
   categories: MenuItem[] = [];
   navigators: MegaMenuItem[] = [];
 
   constructor(private categoriesGroupService: CategoriesGroupService,
-              private navigationService: NavigationService) { }
+              private navigationService: NavigationService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.cities = [
-      {name: 'New York', code: 'NY'},
-      {name: 'Rome', code: 'RM'},
-      {name: 'London', code: 'LDN'},
-      {name: 'Istanbul', code: 'IST'},
-      {name: 'Paris', code: 'PRS'}
-    ];
-    
     this.categoriesGroupService.getAll()
       .subscribe(val => {
+        this.categoriesGroups = val;
+
         this.categories = val.map(group => {
           // TODO fix url
           return { 
@@ -45,7 +41,13 @@ export class MainHeaderComponent {
       });
   }
 
-  search(value: string) { }
+  search(value: string) {
+    if (this.selectedGroup) {
+      this.router.navigate(["/products", this.selectedGroup.name], {
+        queryParams: { query: value }
+      });
+    }
+  }
 
   visible: boolean = false;
 

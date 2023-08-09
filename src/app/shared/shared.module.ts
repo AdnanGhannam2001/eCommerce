@@ -36,6 +36,7 @@ import { ProgressBarModule } from "primeng/progressbar";
 import { ProductTabViewComponent } from './product-tab-view/product-tab-view.component';
 import { TabViewModule } from "primeng/tabview";
 import { TableModule } from "primeng/table";
+import { DropdownModule } from "primeng/dropdown";
 
 
 
@@ -78,7 +79,8 @@ import { TableModule } from "primeng/table";
     InputNumberModule,
     ProgressBarModule,
     TabViewModule,
-    TableModule
+    TableModule,
+    DropdownModule
   ],
   exports: [
     NavbarComponent,

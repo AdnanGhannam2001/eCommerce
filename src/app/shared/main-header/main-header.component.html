@@ -6,9 +6,24 @@
         (click)="sidebarVisible = true"></p-button>
     <ecommerce-logo></ecommerce-logo>
     <div class="p-inputgroup main-header__search-box">
-        <p-multiSelect defaultLabel="Select a City"  class="p-inputgroup-addon" [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-multiSelect>
+        <p-dropdown 
+            [options]="categoriesGroups" 
+            [(ngModel)]="selectedGroup" 
+            placeholder="Select a Group">
+            <ng-template pTemplate="selectedItem">
+                <div>{{ selectedGroup.name }}</div>
+            </ng-template>
+            <ng-template let-group pTemplate="item">
+                <div>{{ group.name }}</div>
+            </ng-template>
+        </p-dropdown>
         <input #searchInput type="text" name="search" pInputText placeholder="Search..." />
-        <button type="button" (click)="search(searchInput.value)" pButton label="Search" styleClass="p-button-warn"></button>
+        <button pButton 
+            type="button" 
+            (click)="search(searchInput.value)" 
+            label="Search" 
+            styleClass="p-button-warn"
+        ></button>
     </div> 
     <div class="main-header__toolbar">
         <div>

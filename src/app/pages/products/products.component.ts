@@ -51,14 +51,18 @@ export class ProductsComponent implements OnInit {
           this.breadcrumbItems.push({ label: val.name });
           this.categories = val.categories;
         });
-      this.productService.getAll()
+    });
+
+    this.activatedRoute.queryParamMap.subscribe(queryParams => {
+      const query = queryParams.get("query") || "";
+      this.productService.getAll(query)
         .subscribe(val => {
           this.products = val;
           this.displayProducts = this.products;
         });
       this.productService.getColors()
         .subscribe(val => this.colors = val);
-    });
+    })
   }
 
   onSortChange(event: any) {
