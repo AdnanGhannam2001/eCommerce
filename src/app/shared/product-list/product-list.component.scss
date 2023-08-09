@@ -1,4 +1,5 @@
 @use "../../utilities/mixin.scss";
+@use "../../utilities/mediaQuery.scss";
 
 :host {
     $padding: 2em;
@@ -19,8 +20,9 @@
     .product-list {
         &__left {
             position: relative;
-            padding-top: 175px;
-            width: 175px;
+            padding-top: 100%;
+            max-width: 175px;
+            min-width: 140px;
 
             img {
                 @include mixin.absolute(0, auto, auto, 0);
@@ -77,4 +79,26 @@
         }
     }
 
+    @include mediaQuery.Tablets {
+        .product-list {
+            &__center {
+                grid-column: 2/span 3;
+            }
+
+            &__right {
+                grid-row: 2;
+                grid-column: 1 / span 4;
+            }
+        }
+    }
+
+    @include mediaQuery.Mobiles {
+        display: block;
+
+        .product-list {
+            &__left {
+                max-width: 100%;
+            }
+        }
+    }
 }

@@ -1,44 +1,46 @@
 <ecommerce-breadcrumb [items]="breadcrumbItems"></ecommerce-breadcrumb>
 <div class="container">
     <div class="products__sidebar">
-        <p-panel header="Product Categories">
-            <div *ngFor="let category of categories" class="field-checkbox">
-                <p-checkbox name="group" [value]="category.name" [(ngModel)]="selectedCategories" [inputId]="category.id"></p-checkbox>
-                <label [for]="category.id">{{ category.name }}</label>
-            </div>
+        <p-panel header="Filter" [toggleable]="true" class="filter-panel">
+            <p-panel header="Product Categories">
+                <div *ngFor="let category of categories" class="field-checkbox">
+                    <p-checkbox name="group" [value]="category.name" [(ngModel)]="selectedCategories" [inputId]="category.id"></p-checkbox>
+                    <label [for]="category.id">{{ category.name }}</label>
+                </div>
+            </p-panel>
+            <p-divider></p-divider>
+            <p-panel header="Price" [toggleable]="true">
+                <h5 class="products__range">${{priceRange[0]}} - ${{priceRange[1]}}</h5>
+                <p-slider [min]="0" [max]="1000" [(ngModel)]="priceRange" [range]="true"></p-slider>
+            </p-panel>
+            <p-divider></p-divider>
+            <p-panel header="Color" [toggleable]="true">
+                <div *ngFor="let color of colors" class="field-checkbox">
+                    <p-checkbox name="color" 
+                        [value]="color" 
+                        [(ngModel)]="selectedColors" 
+                        [inputId]="color.id"
+                    ></p-checkbox>
+                    <label [for]="color.id">{{ color.name }}</label>
+                    <p-avatar 
+                        [title]="color.value" 
+                        [style]="{ 'background-color': color.value }" 
+                        shape="circle"
+                    ></p-avatar>
+                </div>
+            </p-panel>
+            <p-divider></p-divider>
+            <p-panel header="Availability" [toggleable]="true">
+                <div class="field-checkbox">
+                    <p-triStateCheckbox name="available" [(ngModel)]="availability" inputId="availability"></p-triStateCheckbox>
+                    <label for="availability">In Stock</label>
+                </div>
+            </p-panel>
+            <p-button label="Apply filter" 
+                [style]="{ 'margin': '1em' }"
+                (onClick)="applyFilter()"
+            ></p-button>
         </p-panel>
-        <p-divider></p-divider>
-        <p-panel header="Price" [toggleable]="true">
-            <h5 class="products__range">${{priceRange[0]}} - ${{priceRange[1]}}</h5>
-            <p-slider [min]="0" [max]="1000" [(ngModel)]="priceRange" [range]="true"></p-slider>
-        </p-panel>
-        <p-divider></p-divider>
-        <p-panel header="Color" [toggleable]="true">
-            <div *ngFor="let color of colors" class="field-checkbox">
-                <p-checkbox name="color" 
-                    [value]="color" 
-                    [(ngModel)]="selectedColors" 
-                    [inputId]="color.id"
-                ></p-checkbox>
-                <label [for]="color.id">{{ color.name }}</label>
-                <p-avatar 
-                    [title]="color.value" 
-                    [style]="{ 'background-color': color.value }" 
-                    shape="circle"
-                ></p-avatar>
-            </div>
-        </p-panel>
-        <p-divider></p-divider>
-        <p-panel header="Availability" [toggleable]="true">
-            <div class="field-checkbox">
-                <p-triStateCheckbox name="available" [(ngModel)]="availability" inputId="availability"></p-triStateCheckbox>
-                <label for="availability">In Stock</label>
-            </div>
-        </p-panel>
-        <p-button label="Apply filter" 
-            [style]="{ 'margin': '1em' }"
-            (onClick)="applyFilter()"
-        ></p-button>
     </div>
     <p-dataView #dv 
         [value]="displayProducts || []" 
