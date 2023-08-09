@@ -20,6 +20,7 @@ import { PanelModule } from "primeng/panel";
 import { SliderModule } from "primeng/slider";
 import { AvatarModule } from "primeng/avatar";
 import { RadioButtonModule } from "primeng/radiobutton";
+import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,8 @@ import { RadioButtonModule } from "primeng/radiobutton";
         PanelModule,
         SliderModule,
         AvatarModule,
-        RadioButtonModule
+        RadioButtonModule,
+        TriStateCheckboxModule
     ]
 })
 export class PagesModule { }

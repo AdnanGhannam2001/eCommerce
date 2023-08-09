@@ -236,7 +236,7 @@ export class ProductService {
         returnInfo: "Easy and complimentary, within 14 days",
         available: [
           { color: { id: "1", name: "Black", value: "#000000" }, size: "128GB" },
-          { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "128GB" },
+          { color: { id: "6", name: "GhostWhite", value: "#f8f8ff" }, size: "128GB" },
           { color: { id: "10", name: "Purple", value: "#800080" }, size: "128GB" },
           { color: { id: "1", name: "Black", value: "#000000" }, size: "256GB" },
           { color: { id: "3", name: "Dark grayish orange", value: "#ffffff" }, size: "256GB" },
@@ -660,8 +660,7 @@ export class ProductService {
       filtered = filtered.filter(product => product.price >= price[0] && product.price <= price[1]);
     }
 
-    console.log(categories)
-    if (categories) {
+    if (categories?.length) {
       filtered = filtered.filter(product => categories.includes(product.category.name));
     }
 

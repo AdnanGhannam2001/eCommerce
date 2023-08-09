@@ -22,18 +22,15 @@ export class ProductsComponent implements OnInit {
 
   priceRange: [number, number] = [0, 1000];
 
-  availabilities = [
-    {
-      id: crypto.randomUUID(),
-      name: "In Stock",
-      value: true
-    },
-    {
-      id: crypto.randomUUID(),
-      name: "Out of Stock",
-      value: false
-    }
+  sortOptions = [
+    { label: "Sort By Name Asc", value: "name" },
+    { label: "Sort By Name Desc", value: "!name" },
+    { label: "Sort By Price Asc", value: "price" },
+    { label: "Sort By Price Desc", value: "!price" }
   ];
+
+  sortOrder!: number;
+  sortField!: string;
 
   currentLayout = "list";
   products?: Product[];
@@ -62,6 +59,18 @@ export class ProductsComponent implements OnInit {
       this.productService.getColors()
         .subscribe(val => this.colors = val);
     });
+  }
+
+  onSortChange(event: any) {
+    let value = event.value;
+
+    if (value.indexOf('!') === 0) {
+      this.sortOrder = -1;
+      this.sortField = value.substring(1, value.length);
+    } else {
+      this.sortOrder = 1;
+      this.sortField = value;
+    }
   }
 
   applyFilter() {

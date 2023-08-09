@@ -20,6 +20,13 @@
     }
 
     ::ng-deep {
+        .products {
+            &__range {
+                margin: 1em 0;
+                text-align: center;
+            }
+        }
+
         .p-panel {
             .p-panel-header {
                 text-transform: uppercase;

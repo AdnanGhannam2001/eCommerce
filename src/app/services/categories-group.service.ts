@@ -24,10 +24,12 @@ export class CategoriesGroupService {
         img: "/assets/category.webp",
         categories: [
           { id: "1", name: "Computers" },
-          { id: "2", name: "Hard Drives & Memory" },
-          { id: "3", name: "Desktops & Monitors" },
-          { id: "4", name: "Computer Accessories" },
-          { id: "5", name: "Networking & Internet" }
+          { id: "2", name: "Desktops & Monitors" },
+          { id: "3", name: "Hard Drives & Memory" },
+          { id: "4", name: "Networking & Internet" },
+          { id: "5", name: "Accessories" },
+          { id: "6", name: "Watches" },
+          { id: "7", name: "Smart Phones & Tablets" },
         ]
       },
       { 
@@ -39,7 +41,9 @@ export class CategoriesGroupService {
           { id: "2", name: "Desktops & Monitors" },
           { id: "3", name: "Hard Drives & Memory" },
           { id: "4", name: "Networking & Internet" },
-          { id: "5", name: "Computer Accessories" }
+          { id: "5", name: "Accessories" },
+          { id: "6", name: "Watches" },
+          { id: "7", name: "Smart Phones & Tablets" },
         ]
       },
       { 
@@ -51,7 +55,9 @@ export class CategoriesGroupService {
           { id: "2", name: "Desktops & Monitors" },
           { id: "3", name: "Hard Drives & Memory" },
           { id: "4", name: "Networking & Internet" },
-          { id: "5", name: "Computer Accessories" }
+          { id: "5", name: "Accessories" },
+          { id: "6", name: "Watches" },
+          { id: "7", name: "Smart Phones & Tablets" },
         ]
       },
       { 
@@ -63,7 +69,9 @@ export class CategoriesGroupService {
           { id: "2", name: "Desktops & Monitors" },
           { id: "3", name: "Hard Drives & Memory" },
           { id: "4", name: "Networking & Internet" },
-          { id: "5", name: "Computer Accessories" }
+          { id: "5", name: "Accessories" },
+          { id: "6", name: "Watches" },
+          { id: "7", name: "Smart Phones & Tablets" },
         ]
       },
       { 
@@ -75,7 +83,9 @@ export class CategoriesGroupService {
           { id: "2", name: "Desktops & Monitors" },
           { id: "3", name: "Hard Drives & Memory" },
           { id: "4", name: "Networking & Internet" },
-          { id: "5", name: "Computer Accessories" }
+          { id: "5", name: "Accessories" },
+          { id: "6", name: "Watches" },
+          { id: "7", name: "Smart Phones & Tablets" },
         ]
       },
     ];

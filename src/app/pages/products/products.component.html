@@ -9,6 +9,7 @@
         </p-panel>
         <p-divider></p-divider>
         <p-panel header="Price" [toggleable]="true">
+            <h5 class="products__range">${{priceRange[0]}} - ${{priceRange[1]}}</h5>
             <p-slider [min]="0" [max]="1000" [(ngModel)]="priceRange" [range]="true"></p-slider>
         </p-panel>
         <p-divider></p-divider>
@@ -29,9 +30,9 @@
         </p-panel>
         <p-divider></p-divider>
         <p-panel header="Availability" [toggleable]="true">
-            <div *ngFor="let av of availabilities" class="field-checkbox">
-                <p-radioButton name="available" [value]="av.value" [(ngModel)]="availability" [inputId]="av.id"></p-radioButton>
-                <label [for]="av.id">{{ av.name }}</label>
+            <div class="field-checkbox">
+                <p-triStateCheckbox name="available" [(ngModel)]="availability" inputId="availability"></p-triStateCheckbox>
+                <label for="availability">In Stock</label>
             </div>
         </p-panel>
         <p-button label="Apply filter" 
@@ -39,11 +40,17 @@
             (onClick)="applyFilter()"
         ></p-button>
     </div>
-    <p-dataView #dv [value]="displayProducts || []" [layout]="currentLayout" [rows]="5" [paginator]="true">
+    <p-dataView #dv 
+        [value]="displayProducts || []" 
+        [layout]="currentLayout" 
+        [rows]="5"
+        [paginator]="true"
+        [sortField]="sortField" 
+        [sortOrder]="sortOrder">
         <ng-template pTemplate="header">
             <span class="products__count">{{ displayProducts?.length }} products</span>
             <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
-            <p-dropdown [options]="['Sort by 1', 'Sort by 2']" placeholder="Sort By Price"></p-dropdown>
+            <p-dropdown [options]="sortOptions" (onChange)="onSortChange($event)" placeholder="Sort By"></p-dropdown>
         </ng-template>
         <ng-template let-product pTemplate="listItem">
             <ecommerce-product-list [product]="product">
