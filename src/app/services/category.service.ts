@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product.service';
 import { Observable, concatAll, first, of } from 'rxjs';
+import categories from "../data/categories.json";
 
 export interface Category {
   id: string;
@@ -16,15 +17,7 @@ export class CategoryService {
   categories$: Observable<Category[]>;
 
   constructor() {
-    this.categories = [
-      { id: "1", name: "Computers" },
-      { id: "2", name: "Desktops & Monitors" },
-      { id: "3", name: "Hard Drives & Memory" },
-      { id: "4", name: "Networking & Internet" },
-      { id: "5", name: "Accessories" },
-      { id: "6", name: "Watches" },
-      { id: "7", name: "Smart Phones & Tablets" },
-    ];
+    this.categories = categories;
     this.categories$ = of(this.categories);
   }
 
