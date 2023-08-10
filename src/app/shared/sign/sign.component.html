@@ -1,0 +1,92 @@
+<p-tabView>
+    <p-tabPanel header="Login">
+        <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+            <div class="sign__input-box">
+                <label for="login-email">Email Address</label>
+                <input pInputText 
+                    id="login-email" 
+                    class="sign__input" 
+                    name="email"
+                    type="email"
+                    required
+                    ngModel />
+            </div>
+            <div class="sign__input-box">
+                <label for="login-password">Password</label>
+                <p-password 
+                    inputId="login-password" 
+                    class="sign__input" 
+                    name="password" 
+                    required
+                    ngModel
+                    [toggleMask]="true">
+                </p-password>
+            </div>
+            <div class="sign__container">
+                <div class="sign__checkbox">
+                    <p-checkbox value="remember" inputId="rm"></p-checkbox>
+                    <label for="rm">Remember Me</label>
+                </div>
+                <a routerLink="/forget-password" class="ecommerce-link">Forget your password?</a>
+            </div>
+            <p-button type="submit" label="Login"></p-button>
+        </form>
+    </p-tabPanel>
+    <p-tabPanel header="Register">
+        <form (submit)="onRegister(registerForm)" #registerForm="ngForm">
+            <div class="sign__input-box">
+                <label for="register-fn">Firstname</label>
+                <input pInputText 
+                    id="register-fn" 
+                    class="sign__input" 
+                    name="fn"
+                    required
+                    ngModel />
+            </div>
+            <div class="sign__input-box">
+                <label for="register-ln">Lastname</label>
+                <input pInputText 
+                    id="register-ln" 
+                    class="sign__input" 
+                    name="ln"
+                    required
+                    ngModel />
+            </div>
+            <div class="sign__input-box">
+                <label for="register-email">Email Address</label>
+                <input pInputText 
+                    id="register-email" 
+                    class="sign__input" 
+                    name="email"
+                    type="email"
+                    required
+                    ngModel />
+            </div>
+            <div class="sign__input-box">
+                <label for="register-password">Password</label>
+                <p-password 
+                    id="register-password" 
+                    class="sign__input" 
+                    name="password"
+                    required
+                    ngModel
+                    [toggleMask]="true">
+                    <ng-template pTemplate="header">
+                        <h6>Pick a password</h6>
+                    </ng-template>
+                    <ng-template pTemplate="footer">
+                        <p-divider></p-divider>
+                        <!-- <p class="mt-2">Suggestions</p> -->
+                        <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                            <li>At least one lowercase</li>
+                            <li>At least one uppercase</li>
+                            <li>At least one numeric</li>
+                            <li>Minimum 8 characters</li>
+                        </ul>
+                    </ng-template>
+                </p-password>
+            </div>
+            <p-button type="submit" label="Create new account"></p-button>
+        </form>
+    </p-tabPanel>
+</p-tabView>

@@ -37,6 +37,9 @@ import { ProductTabViewComponent } from './product-tab-view/product-tab-view.com
 import { TabViewModule } from "primeng/tabview";
 import { TableModule } from "primeng/table";
 import { DropdownModule } from "primeng/dropdown";
+import { SignComponent } from './sign/sign.component';
+import { PasswordModule } from "primeng/password";
+import { CheckboxModule } from "primeng/checkbox";
 
 
 
@@ -52,7 +55,8 @@ import { DropdownModule } from "primeng/dropdown";
     ProductListComponent,
     ProductGridComponent,
     ProductViewComponent,
-    ProductTabViewComponent
+    ProductTabViewComponent,
+    SignComponent
   ],
   imports: [
     CommonModule,
@@ -80,7 +84,9 @@ import { DropdownModule } from "primeng/dropdown";
     ProgressBarModule,
     TabViewModule,
     TableModule,
-    DropdownModule
+    DropdownModule,
+    PasswordModule,
+    CheckboxModule
   ],
   exports: [
     NavbarComponent,
@@ -92,7 +98,8 @@ import { DropdownModule } from "primeng/dropdown";
     ProductListComponent,
     ProductGridComponent,
     ProductViewComponent,
-    ProductTabViewComponent
+    ProductTabViewComponent,
+    SignComponent
   ]
 })
 export class SharedModule { }

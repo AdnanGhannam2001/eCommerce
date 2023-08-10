@@ -2,18 +2,11 @@
     ::ng-deep {
         .product {
             &__shipping-return {
-                // line-height: 2em;
-
                 p {
                     margin-bottom: .75em;
                     color: var(--clr-product-info)
                 }
             }
-        }
-
-        .p-tabview-nav {
-            justify-content: center;
-            text-transform: uppercase;
         }
     }
 }
