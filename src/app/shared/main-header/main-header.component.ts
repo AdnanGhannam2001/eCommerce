@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
+import { CartService } from 'src/app/services/cart.service';
 import { CategoriesGroup, CategoriesGroupService } from 'src/app/services/categories-group.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 
@@ -17,11 +18,16 @@ export class MainHeaderComponent {
   categories: MenuItem[] = [];
   navigators: MegaMenuItem[] = [];
 
+  cartItemsCount = 0;
+
   constructor(private categoriesGroupService: CategoriesGroupService,
               private navigationService: NavigationService,
+              private cartService: CartService,
               private router: Router) { }
 
   ngOnInit() {
+    this.cartItemsCount = this.cartService.getCount("1");
+
     this.categoriesGroupService.getAll()
       .subscribe(val => {
         this.categoriesGroups = val;

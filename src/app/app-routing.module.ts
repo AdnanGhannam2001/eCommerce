@@ -10,6 +10,7 @@ import { FaqsComponent } from './pages/faqs/faqs.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DashboardComponent } from './templates/dashboard/dashboard.component';
 import { MainComponent } from './templates/main/main.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: "about-us", component: AboutUsComponent },
       { path: "contact-us", component: ContactUsComponent },
       { path: "faqs", component: FaqsComponent },
+      { path: "cart", component: CartComponent },
       { path: "**", component: NotFoundComponent }
     ]
   },

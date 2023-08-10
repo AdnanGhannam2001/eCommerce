@@ -1,0 +1,57 @@
+@use "../../utilities/mixin.scss";
+@use "../../utilities/mediaQuery.scss";
+
+:host {
+    .container {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .cart {
+    }
+
+    ::ng-deep {
+        .cart {
+            &__header {
+                @include mixin.flex(space-between);
+            }
+
+            &__table {
+                flex: 1;
+            }
+
+            &__btn {
+                margin: .5em 0;
+            }
+
+            &__sidebar {
+
+                .p-panel {
+                    background-color: var(--bg-secondary);
+                    border-radius: 7px;
+
+                    &-header {
+                        font-size: 1.25em;
+                        border-bottom: 0;
+                    }
+
+                    &-content {
+                        border-bottom: 0;
+                        border-bottom-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                    }
+                }
+
+                &__box {
+                    &:not(:last-child) {
+                        margin-bottom: .75em;
+                    }
+
+                    .title {
+                        margin-bottom: .25em;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -77,3 +77,5 @@
     - Precentege
 - FAQs
 
+## Notes:
+- Product's price should increase depending on options

@@ -41,6 +41,7 @@ import { SignComponent } from './sign/sign.component';
 import { PasswordModule } from "primeng/password";
 import { CheckboxModule } from "primeng/checkbox";
 import { ReviewComponent } from './review/review.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
 
 
 
@@ -58,7 +59,8 @@ import { ReviewComponent } from './review/review.component';
     ProductViewComponent,
     ProductTabViewComponent,
     SignComponent,
-    ReviewComponent
+    ReviewComponent,
+    CartItemComponent
   ],
   imports: [
     CommonModule,
@@ -102,7 +104,8 @@ import { ReviewComponent } from './review/review.component';
     ProductViewComponent,
     ProductTabViewComponent,
     SignComponent,
-    ReviewComponent
+    ReviewComponent,
+    CartItemComponent
   ]
 })
 export class SharedModule { }

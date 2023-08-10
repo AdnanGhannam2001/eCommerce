@@ -1,0 +1,21 @@
+<td>
+    <img class="cart-item__img" [src]="item.product.images[0].big" />
+</td>
+<td>
+    <a class="ecommerce-link"
+        [routerLink]="'/product/' + item.product.id">
+        {{ item.product.name }}
+    </a>
+</td>
+<td>
+    {{ item.selectedSize }}
+</td>
+<td>
+    {{ item.selectedColor.name }}
+</td>
+<td>
+    {{ item.count }}
+</td>
+<td>
+    {{ item.count * item.product.price }}
+</td>

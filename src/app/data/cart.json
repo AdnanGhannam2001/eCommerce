@@ -1,0 +1,161 @@
+[
+    {
+        "id": "1",
+        "count": 2,
+        "for": {
+            "id": "1",
+            "name": "adnan"
+        },
+        "selectedSize": "128GB",
+        "selectedColor": {
+            "id": "1",
+            "name": "Black",
+            "value": "#000000"
+        },
+        "product": {
+            "id": "12",
+            "name": "Samsung Galaxy S21 Ultra 128GB - Black",
+            "price": 1000,
+            "category": {
+            "id": "7",
+            "name": "Smart Phones & Tablets"
+            },
+            "images": [
+            {
+                "big": "/assets/product-1-1.webp",
+                "small": "/assets/product-1-1-s.avif"
+            },
+            {
+                "big": "/assets/product-1-2.webp",
+                "small": "/assets/product-1-2-s.avif"
+            },
+            {
+                "big": "/assets/product-1-3.webp",
+                "small": "/assets/product-1-3-s.avif"
+            }
+            ],
+            "description": "",
+            "information": [
+            [
+                "Color",
+                "Space Black, Silver, Red"
+            ],
+            [
+                "Product Type",
+                "New, Renewed, Refurbished, Used"
+            ],
+            [
+                "Storage",
+                "64GB, 512GB, 2TB"
+            ],
+            [
+                "Brand",
+                "Apple"
+            ],
+            [
+                "Display",
+                "10.9-inch Liquid Retina display with True Tone"
+            ],
+            [
+                "Chip (CPU)",
+                "Apple M1 with 8-core CPU, 8-core GPU"
+            ],
+            [
+                "Camera and Video",
+                "12MP - 4K Video"
+            ],
+            [
+                "Front Camera",
+                "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"
+            ],
+            [
+                "Battery Life",
+                "Up to 10 hours on Wi-Fi, Up to 9 hours using cellular data network"
+            ],
+            [
+                "In the Box",
+                "iPad Air, USB-C Charge Cable (1 meter), 20W USB-CPower Adapter"
+            ],
+            [
+                "Height",
+                "9.74 inches (247.6 mm)"
+            ],
+            [
+                "Width",
+                "7.02 inches (178.5 mm)"
+            ],
+            [
+                "Weight",
+                "1.0 pound (458 grams) Wi-Fi model; 1.02 pounds (462 grams) Wi-Fi"
+            ],
+            [
+                "Mobile Network",
+                "5G"
+            ]
+            ],
+            "vendor": {
+            "id": "1",
+            "name": "any"
+            },
+            "specification": [
+            " Screen Size 10.9 inch",
+            "Operating System iOS 14.0",
+            "Product Length 9.74 inch"
+            ],
+            "shippingInfo": "Complimentary ground shipping within 1 to 7 business days",
+            "returnInfo": "Easy and complimentary, within 14 days",
+            "available": [
+            {
+                "color": {
+                "id": "1",
+                "name": "Black",
+                "value": "#000000"
+                },
+                "size": "128GB"
+            },
+            {
+                "color": {
+                "id": "3",
+                "name": "Dark grayish orange",
+                "value": "#ffffff"
+                },
+                "size": "128GB"
+            },
+            {
+                "color": {
+                "id": "10",
+                "name": "Purple",
+                "value": "#800080"
+                },
+                "size": "128GB"
+            },
+            {
+                "color": {
+                "id": "1",
+                "name": "Black",
+                "value": "#000000"
+                },
+                "size": "256GB"
+            },
+            {
+                "color": {
+                "id": "3",
+                "name": "Dark grayish orange",
+                "value": "#ffffff"
+                },
+                "size": "256GB"
+            },
+            {
+                "color": {
+                "id": "8",
+                "name": "LightBlue",
+                "value": "#add8e6"
+                },
+                "size": "512GB"
+            }
+            ],
+            "createdAt": 1691588586647,
+            "rate": 0
+        }
+    }
+]

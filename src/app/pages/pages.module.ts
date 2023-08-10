@@ -21,6 +21,10 @@ import { SliderModule } from "primeng/slider";
 import { AvatarModule } from "primeng/avatar";
 import { RadioButtonModule } from "primeng/radiobutton";
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
+import { CartComponent } from './cart/cart.component';
+import { TableModule } from "primeng/table";
+import { CascadeSelectModule } from 'primeng/cascadeselect';
+import { InputMaskModule } from "primeng/inputmask";
 
 @NgModule({
     declarations: [
@@ -31,7 +35,8 @@ import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
         AboutUsComponent,
         ContactUsComponent,
         NotFoundComponent,
-        FaqsComponent
+        FaqsComponent,
+        CartComponent
     ],
     imports: [
         CommonModule,
@@ -46,7 +51,10 @@ import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
         SliderModule,
         AvatarModule,
         RadioButtonModule,
-        TriStateCheckboxModule
+        TriStateCheckboxModule,
+        TableModule,
+        CascadeSelectModule,
+        InputMaskModule
     ]
 })
 export class PagesModule { }

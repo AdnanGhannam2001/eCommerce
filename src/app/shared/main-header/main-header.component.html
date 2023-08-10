@@ -45,7 +45,7 @@
         <div class="main-header__links">
             <a routerLink="/cart" styleClass="p-button-text" class="ecommerce-link main-header__toolbar__link">
                 <p-avatar pBadge 
-                    value="4" 
+                    [value]="cartItemsCount.toString()" 
                     icon="fa-solid fa-basket-shopping"
                     severity="danger"
                     [style]="{ 'background-color': 'transparent' }"></p-avatar>
@@ -68,7 +68,7 @@
         <p-divider></p-divider>
         <a routerLink="/cart" styleClass="p-button-text" class="ecommerce-link main-header__toolbar__link">
             <i class="fa-solid fa-basket-shopping"></i>
-            Cart (0)
+            Cart ({{ cartItemsCount }})
         </a>
         <p-divider></p-divider>
         <a routerLink="/fav" styleClass="p-button-text" class="ecommerce-link main-header__toolbar__link">

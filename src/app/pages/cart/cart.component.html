@@ -1,0 +1,47 @@
+<div class="container">
+    <p-panel class="cart__sidebar" [header]="'Cart Total: $' + 1" [toggleable]="true" [collapsed]="true">
+        <div class="cart__sidebar__box">
+            <h4 class="title">City</h4>
+            <p-cascadeSelect 
+                [(ngModel)]="selectedCity" 
+                [options]="countries"
+                optionLabel="cname" 
+                optionGroupLabel="name"
+                [optionGroupChildren]="['states', 'cities']" 
+                [style]="{ minWidth: '14rem' }" 
+                placeholder="Select a City"
+            ></p-cascadeSelect>
+        </div>
+
+        <div class="cart__sidebar__box">
+            <h4 class="title">Zip Code</h4>
+            <p-inputMask mask="9-9-9-9-9" [(ngModel)]="zip" placeholder="9-9-9-9-9"></p-inputMask>
+        </div>
+        <p-divider></p-divider>
+
+        <p>Taxes and shipping calculated at checkout</p>
+        <button pButton class="cart__btn">Check Out</button>
+    </p-panel>
+    <p-table [value]="cart" [tableStyle]="{'min-width': '60rem' }" class="cart__table">
+        <ng-template pTemplate="caption">
+            <div class="cart__header">
+                <span>Cart ({{ cart.length }}) products</span>
+                <a routerLink="/categories" class="ecommerce-link">Back To Shopping</a>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Color</th>
+                <th>Count</th>
+                <th>Price</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-cartItem>
+            <tr ecommerce-cart-item [item]="cartItem">
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
