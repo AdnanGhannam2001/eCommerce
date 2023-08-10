@@ -1,1 +1,114 @@
-<p>contact-us works!</p>
+<div class="container">
+    <div class="contact-us__map">
+        <iframe 
+            class="map"
+            allowfullscreen
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5034640.861005683!2d7.937622515625007!3d51.96457726898303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2snl!4v1691696882589!5m2!1sar!2snl"
+        ></iframe>
+    </div>
+    <div class="contact-us__content">
+        <div class="contact-us__content__left">
+            <h2 class="title">Get in Touch</h2>
+            <small>Your email address will not be published. Required fields are marked *</small>
+            <form class="contact-us__form">
+                <input pInputText 
+                    type="text" 
+                    name="name" 
+                    placeholder="Name"
+                    required
+                    ngModel />
+                <input pInputText 
+                    type="email" 
+                    name="email" 
+                    placeholder="Email"
+                    required
+                    ngModel />
+                <p-inputMask 
+                    name="phonenumber"
+                    mask="(999) 999-9999"
+                    placeholder="(999) 999-9999"
+                    [required]="true"
+                    [style]="{ 'width': '100%' }"
+                    ngModel
+                ></p-inputMask>
+                <textarea pInputTextarea 
+                    name="message"
+                    placeholder="Message"
+                    rows="5" 
+                    cols="30" 
+                    ngModel
+                ></textarea>
+                <button pButton class="btn" label="Send"></button>
+            </form>
+        </div>
+        <div class="contact-us__content__right">
+            <h2 class="title">Contact Information</h2>
+            <small>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae at tempore repellat voluptatem est veritatis. Qui incidunt reiciendis repellendus omnis.</small>
+            <div class="contact-us__item">
+                <h5>Location store:</h5>
+                <small>123 St, South ABC 456789, United States.</small>
+            </div>
+            <div class="contact-us__item">
+                <h5>Work time:</h5>
+                <small>Monday - Friday: 9:00-20:00</small>
+                <br>
+                <small>Saturady: 11:00 - 15:00</small>
+            </div>
+            <div class="contact-us__item">
+                <h5>Phone Number:</h5>
+                <small>+123-4567-890</small>
+                <br>
+                <small>(+000) 123-456-7890 </small>
+            </div>
+            <div class="contact-us__item">
+                <h5>Email Address:</h5>
+                <small>email1@example.com</small>
+                <br>
+                <small>email2@example.com</small>
+            </div>
+            <div class="contact-us__item">
+                <h5>Social Accounts:</h5>
+                <div class="avatars-box">
+                    <a routerLink="/" class="link">
+                        <p-avatar 
+                            icon="fa-brands fa-x-twitter"
+                            shape="circle"
+                            pTooltip="Twitter" 
+                            tooltipPosition="top" 
+                            [style]="{ 'background-color': 'var(--gray-900)'}"
+                        ></p-avatar>
+                    </a>
+                    <a routerLink="/" class="link">
+                        <p-avatar 
+                            icon="fa-brands fa-google"
+                            shape="circle"
+                            pTooltip="Google" 
+                            tooltipPosition="top" 
+                            [style]="{ 'background-color': 'var(--red-500)'}"
+                        ></p-avatar>
+                    </a>
+                    <a routerLink="/" class="link">
+                        <p-avatar 
+                            icon="fa-brands fa-facebook-f"
+                            shape="circle"
+                            pTooltip="Facebook" 
+                            tooltipPosition="top" 
+                            [style]="{ 'background-color': 'var(--blue-700)'}"
+                        ></p-avatar>
+                    </a>
+                    <a routerLink="/" class="link">
+                        <p-avatar 
+                            icon="fa-brands fa-youtube"
+                            shape="circle"
+                            pTooltip="Youtube" 
+                            tooltipPosition="top" 
+                            [style]="{ 'background-color': 'var(--red-600)'}"
+                        ></p-avatar>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

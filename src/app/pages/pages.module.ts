@@ -26,6 +26,9 @@ import { TableModule } from "primeng/table";
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { InputMaskModule } from "primeng/inputmask";
 import { AccordionModule } from 'primeng/accordion';
+import { InputTextModule } from "primeng/inputtext";
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
     declarations: [
@@ -56,7 +59,10 @@ import { AccordionModule } from 'primeng/accordion';
         TableModule,
         CascadeSelectModule,
         InputMaskModule,
-        AccordionModule
+        AccordionModule,
+        InputTextModule,
+        InputTextareaModule,
+        TooltipModule
     ]
 })
 export class PagesModule { }
