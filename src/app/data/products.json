@@ -147,7 +147,18 @@
       "startedAt": 1691588586647,
       "endsAt": 1691588596647,
       "value": 10
-    }
+    },
+    "reviews": [
+      {
+        "by": {
+          "id": "1",
+          "name": "adnan"
+        },
+        "at": 1691588596647,
+        "content": "My Review On This Product",
+        "rate": 3.9
+      }
+    ]
   },
   {
     "id": "2",

@@ -23,10 +23,7 @@
             <p>{{ product.returnInfo }}</p>
         </div>
     </p-tabPanel>
-    <p-tabPanel header="Reviews" *ngIf="product.reviews">
-        <p>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-            qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-        </p>
+    <p-tabPanel [header]="'Reviews (' + product.reviews.length + ')'" *ngIf="product.reviews">
+        <ecommerce-review *ngFor="let review of product.reviews" [review]="review"></ecommerce-review>
     </p-tabPanel>
 </p-tabView>

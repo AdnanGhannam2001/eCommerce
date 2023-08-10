@@ -40,6 +40,7 @@ import { DropdownModule } from "primeng/dropdown";
 import { SignComponent } from './sign/sign.component';
 import { PasswordModule } from "primeng/password";
 import { CheckboxModule } from "primeng/checkbox";
+import { ReviewComponent } from './review/review.component';
 
 
 
@@ -56,7 +57,8 @@ import { CheckboxModule } from "primeng/checkbox";
     ProductGridComponent,
     ProductViewComponent,
     ProductTabViewComponent,
-    SignComponent
+    SignComponent,
+    ReviewComponent
   ],
   imports: [
     CommonModule,
@@ -99,7 +101,8 @@ import { CheckboxModule } from "primeng/checkbox";
     ProductGridComponent,
     ProductViewComponent,
     ProductTabViewComponent,
-    SignComponent
+    SignComponent,
+    ReviewComponent
   ]
 })
 export class SharedModule { }

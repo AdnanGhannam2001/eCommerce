@@ -1,0 +1,8 @@
+<p-rating [(ngModel)]="review.rate" [readonly]="true" [cancel]="false"></p-rating>
+<div class="review__info">
+    by
+    <strong class="">{{ review.by.name }}</strong>
+    at
+    <strong class="">{{ review.at | date:'d MMM y' }}</strong>
+</div>
+<p class="review__content">{{ review.content }}</p>

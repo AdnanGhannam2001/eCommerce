@@ -1,0 +1,22 @@
+:host {
+    display: block;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid var(--clr-review-border);
+        margin-bottom: 1em;
+    }
+
+    .review {
+        &__info {
+            font-size: .95em;
+
+            strong {
+                font-style: italic;
+            }
+        }
+
+        &__content {
+            padding: 2em .5em;
+        }
+    }
+}
