@@ -1,1 +1,7 @@
-<p>faqs works!</p>
+<div class="container">
+    <p-accordion>
+        <p-accordionTab [header]="faq.question" *ngFor="let faq of faqs">
+            <p>{{ faq.answer }}</p>
+        </p-accordionTab>
+    </p-accordion>
+</div>

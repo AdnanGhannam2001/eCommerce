@@ -1,0 +1,9 @@
+:host {
+    .container {
+        padding: 2em;
+    }
+
+    ::ng-deep .p-accordion .p-accordion-header-link {
+        background-color: var(--bg-faqs-header) !important;
+    }
+}

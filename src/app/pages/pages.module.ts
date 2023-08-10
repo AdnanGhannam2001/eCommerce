@@ -25,6 +25,7 @@ import { CartComponent } from './cart/cart.component';
 import { TableModule } from "primeng/table";
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { InputMaskModule } from "primeng/inputmask";
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
     declarations: [
@@ -54,7 +55,8 @@ import { InputMaskModule } from "primeng/inputmask";
         TriStateCheckboxModule,
         TableModule,
         CascadeSelectModule,
-        InputMaskModule
+        InputMaskModule,
+        AccordionModule
     ]
 })
 export class PagesModule { }
